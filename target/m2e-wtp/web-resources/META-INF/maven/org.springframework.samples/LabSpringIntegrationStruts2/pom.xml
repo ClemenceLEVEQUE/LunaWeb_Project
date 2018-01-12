@@ -166,7 +166,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>LabSpringIntegrationStruts</finalName>
+		<finalName>LunaWeb_Project</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
