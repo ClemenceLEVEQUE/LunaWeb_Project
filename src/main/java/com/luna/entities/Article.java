@@ -1,15 +1,30 @@
 package com.luna.entities;
-/**La classe Article correspond au Article à disposition des client.
-* Il est caractérisé par les informations suivantes:
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+/**La classe Article correspond au Article ï¿½ disposition des client.
+* Il est caractï¿½risï¿½ par les informations suivantes:
 * 
-* l'idArticle correspondant à l'identifiant de l'article
+* l'idArticle correspondant ï¿½ l'identifiant de l'article
 * la categorie de l'article (categorie);
 * le code de l'article (codeArt);
 * le nom de l'article (nomArticle);
 * le Prix (prixUnitaire);
 * le stock disponible(stock);
 * */
-public class Article {
+
+
+@Entity
+public class Article implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private int idArticle;
 	private String categorie;
 	private String codeArt;
