@@ -1,6 +1,7 @@
 package com.luna.dao;
 
 import java.util.ArrayList;
+
 import com.luna.entities.Article;
 
 public interface ArticleDAO {
@@ -9,7 +10,7 @@ public interface ArticleDAO {
 
 	public void updateArticle(Article Art);
 
-	public boolean removeArticle(int idArticle);
+	public void removeArticle(int idArticle);
 
 	public Article getArticle(int idArticle);
 
