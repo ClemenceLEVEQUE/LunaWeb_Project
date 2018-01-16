@@ -1,10 +1,21 @@
 package com.luna.entities;
 
-public class LigneCommande {
+import java.io.Serializable;
 
-	private int idCommande;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+@Entity
+public class LigneCommande implements Serializable{
+
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue
 	private int idLigne;
-	private int idArticle;
+	private Commande commande;
+
+	private Article article;
 	private int quantite;
 
 	public LigneCommande() {
@@ -13,7 +24,7 @@ public class LigneCommande {
 
 	public LigneCommande(int idCommande, int idArticle, int quantite) {
 		super();
-		this.idCommande = idCommande;
+		this.commande = idCommande;
 		this.idArticle = idArticle;
 		this.quantite = quantite;
 	}

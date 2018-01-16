@@ -1,8 +1,20 @@
 package com.luna.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Client {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+
+public class Client implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
 	private int idClient;
 	private String nom;
 	private String prenom;
