@@ -5,6 +5,12 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import org.springframework.stereotype.Service;
+@Service
 @Entity
 public class LigneCommande implements Serializable{
 
@@ -13,8 +19,9 @@ public class LigneCommande implements Serializable{
 	@Id
 	@GeneratedValue
 	private int idLigne;
+	@ManyToOne
 	private Commande commande;
-
+	@OneToOne
 	private Article article;
 	private int quantite;
 
@@ -22,19 +29,19 @@ public class LigneCommande implements Serializable{
 		super();
 	}
 
-	public LigneCommande(int idCommande, int idArticle, int quantite) {
+	public LigneCommande(Commande commande, Article article, int quantite) {
 		super();
-		this.commande = idCommande;
-		this.idArticle = idArticle;
+		this.commande = commande;
+		this.article = article;
 		this.quantite = quantite;
 	}
 
-	public int getIdCommande() {
-		return idCommande;
+	public Commande getCommande() {
+		return commande;
 	}
 
-	public void setIdCommande(int idCommande) {
-		this.idCommande = idCommande;
+	public void setIdCommande(Commande commande) {
+		this.commande = commande;
 	}
 
 	public int getIdLigne() {
@@ -45,12 +52,12 @@ public class LigneCommande implements Serializable{
 		this.idLigne = idLigne;
 	}
 
-	public int getIdArticle() {
-		return idArticle;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
+	public void setIdArticle(Article article) {
+		this.article = article;
 	}
 
 	public int getQuantite() {
@@ -61,11 +68,11 @@ public class LigneCommande implements Serializable{
 		this.quantite = quantite;
 	}
 
-	public LigneCommande(int idCommande, int idLigne, int idArticle, int quantite) {
+	public LigneCommande(Commande commande, int idLigne, Article article, int quantite) {
 		super();
-		this.idCommande = idCommande;
+		this.commande = commande;
 		this.idLigne = idLigne;
-		this.idArticle = idArticle;
+		this.article = article;
 		this.quantite = quantite;
 	}
 

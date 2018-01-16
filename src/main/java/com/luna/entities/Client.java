@@ -1,12 +1,18 @@
-package com.luna.entities;
+ package com.luna.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Service;
+
+import com.luna.entities.Commande;
+@Service
 @Entity
 
 public class Client implements Serializable{
@@ -26,6 +32,11 @@ public class Client implements Serializable{
 	private String date_creation;
 	private String codeClient;
 	private String remarques;
+	
+	@OneToOne
+	List <Commande> commandes;
+	
+	
 	public Client() {
 		super();
 	}
