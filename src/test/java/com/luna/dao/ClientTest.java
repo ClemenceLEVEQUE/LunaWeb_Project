@@ -14,10 +14,10 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.Article;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// TODO Tests avec Arquillian
+// TODO avec Arquillian
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
-public class ArticleTest {
+public class ClientTest {
 	@Autowired
 	private ArticleDAO articleDao;
 	@Autowired
