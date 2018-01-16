@@ -35,7 +35,7 @@ public class ClientDAOmysql implements ClientDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<Client> getAllClient(int sortby) {
+	public ArrayList<Client> getAllClient() {
 		return (ArrayList<Client>) sessionFactory.getCurrentSession().createQuery("from Client").getResultList();
 	}
 

@@ -1,7 +1,5 @@
 package com.luna.traitement;
 
-import com.luna.entities.User;
-
 public class UsersTraitement {
 //	private User user;
 //	

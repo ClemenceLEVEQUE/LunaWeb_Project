@@ -1,11 +1,5 @@
 package com.luna.traitement;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.luna.dao.ArticleDAO;
-import com.luna.dao.ArticleDAOmysql;
-import com.luna.entities.Article;
-
 public class ArticleTraitement {
 //	@Autowired
 //	ArticleDAO dao;

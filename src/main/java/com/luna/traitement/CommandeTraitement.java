@@ -1,20 +1,5 @@
 package com.luna.traitement;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.luna.dao.*;
-import com.luna.entities.Article;
-import com.luna.entities.Client;
-import com.luna.entities.Commande;
-import com.luna.entities.LigneCommande;
-
 public class CommandeTraitement {
 //	@Autowired
 //	LigneCommandeDAO ligne;

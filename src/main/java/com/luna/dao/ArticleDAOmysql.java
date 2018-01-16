@@ -34,7 +34,7 @@ public class ArticleDAOmysql implements ArticleDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<Article> getAllArticle(int sortby) {
+	public ArrayList<Article> getAllArticle() {
 		return (ArrayList<Article>) sessionFactory.getCurrentSession().createQuery("from Article").getResultList();
 	}
 }
