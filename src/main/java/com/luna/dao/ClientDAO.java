@@ -8,5 +8,5 @@ public interface ClientDAO {
 	public void updateClient(Client Cli);
 	public void removeClient(int idClient);
 	public Client getClient(int idClient);
-	public ArrayList<Client> getAllClient(int sortby);
+	public ArrayList<Client> getAllClient();
 }

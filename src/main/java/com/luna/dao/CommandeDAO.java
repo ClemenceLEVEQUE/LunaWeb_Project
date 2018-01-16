@@ -9,5 +9,5 @@ public interface CommandeDAO {
 	public void updateCommande(Commande Comm);
 	public void removeCommande(int idCommande);
 	public Commande getCommande(int idCommande);
-	public ArrayList<Commande> getAllCommande(int sortby);
+	public ArrayList<Commande> getAllCommande();
 }

@@ -36,7 +36,7 @@ public class CommandeDAOmysql implements CommandeDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public ArrayList<Commande> getAllCommande(int sortby) {
+	public ArrayList<Commande> getAllCommande() {
 		return (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("from Commande").getResultList();
 	}
 }
