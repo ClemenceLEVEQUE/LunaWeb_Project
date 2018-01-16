@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @PropertySource(value = { "classpath:db.properties" })
 @EnableTransactionManagement
-@ComponentScan(basePackages = "com.formation")
+@ComponentScan(basePackages = "com.luna")
 
 public class ConteneurSpring {
 
