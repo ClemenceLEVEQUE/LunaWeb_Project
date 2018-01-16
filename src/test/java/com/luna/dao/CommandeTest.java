@@ -11,40 +11,40 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
-import com.luna.entities.Client;
+import com.luna.entities.Commande;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 // TODO avec Arquillian
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
-public class ClientTest {
+public class CommandeTest {
 	@Autowired
-	private ClientDAO clientDAO;
+	private CommandeDAO commandeDAO;
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Before
 	public void BeforeTest() {
-		Client cli1 = new Client();
-		Client cli2 = new Client();
-		Client cli3 = new Client();
-		sessionFactory.getCurrentSession().save(cli1);
-		sessionFactory.getCurrentSession().save(cli2);
-		sessionFactory.getCurrentSession().save(cli3);
+		Commande cde1 = new Commande();
+		Commande cde2 = new Commande();
+		Commande cde3 = new Commande();
+		sessionFactory.getCurrentSession().save(cde1);
+		sessionFactory.getCurrentSession().save(cde2);
+		sessionFactory.getCurrentSession().save(cde3);
 	}
 	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		Client Cli = new Client();
-		clientDAO.insertClient(Cli);
+		Commande user = new Commande();
+		commandeDAO.insertCommande(user);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Client Cli = new Client();
-		clientDAO.updateClient(Cli);
+		Commande user = new Commande();
+		commandeDAO.updateCommande(user);
 	}
 
 	@Test
@@ -57,12 +57,12 @@ public class ClientTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		clientDAO.getClient(1);
+		commandeDAO.getCommande(1);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		clientDAO.getAllClient();
+		commandeDAO.getAllCommande();
 	}
 }
