@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
-import com.luna.entities.Article;
+import com.luna.entities.Client;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 // TODO avec Arquillian
@@ -19,32 +19,32 @@ import com.opensymphony.xwork2.interceptor.annotations.Before;
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class ClientTest {
 	@Autowired
-	private ArticleDAO articleDao;
+	private ClientDAO clientDAO;
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Before
 	public void BeforeTest() {
-		Article art1 = new Article();
-		Article art2 = new Article();
-		Article art3 = new Article();
-		sessionFactory.getCurrentSession().save(art1);
-		sessionFactory.getCurrentSession().save(art2);
-		sessionFactory.getCurrentSession().save(art3);
+		Client cli1 = new Client();
+		Client cli2 = new Client();
+		Client cli3 = new Client();
+		sessionFactory.getCurrentSession().save(cli1);
+		sessionFactory.getCurrentSession().save(cli2);
+		sessionFactory.getCurrentSession().save(cli3);
 	}
 	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		Article Art = new Article();
-		articleDao.insertArticle(Art);
+		Client Cli = new Client();
+		clientDAO.insertClient(Cli);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Article Art = new Article();
-		articleDao.updateArticle(Art);
+		Client Cli = new Client();
+		clientDAO.updateClient(Cli);
 	}
 
 	@Test
@@ -57,12 +57,12 @@ public class ClientTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		articleDao.getArticle(1);
+		clientDAO.getClient(1);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		articleDao.getAllArticle();
+		clientDAO.getAllClient();
 	}
 }
