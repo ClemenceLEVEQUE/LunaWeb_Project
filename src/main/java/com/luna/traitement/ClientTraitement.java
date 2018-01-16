@@ -1,10 +1,5 @@
 package com.luna.traitement;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.luna.dao.*;
-import com.luna.entities.Client;
-
 public class ClientTraitement {
 //	@Autowired
 //	ClientDAO client;

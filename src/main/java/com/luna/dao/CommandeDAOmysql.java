@@ -25,11 +25,18 @@ public class CommandeDAOmysql implements CommandeDAO {
 
 	@Override
 	public void removeCommande(int idCommande) {
-		sessionFactory.getCurrentSession().createQuery("delete from Commande where idCommande = " + idCommande).executeUpdate();
+		// TODO
+		//sessionFactory.getCurrentSession().createQuery("delete from Commande where idCommande = " + idCommande).executeUpdate();
 	}
 
 	@Override
 	public Commande getCommande(int idCommande) {
 		return sessionFactory.getCurrentSession().get(Commande.class, idCommande);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<Commande> getAllCommande(int sortby) {
+		return (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("from Commande").getResultList();
 	}
 }
