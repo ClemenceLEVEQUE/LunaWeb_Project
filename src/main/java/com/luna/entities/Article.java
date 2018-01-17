@@ -1,16 +1,12 @@
 package com.luna.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Service;
-
-import com.luna.entities.LigneCommande;
 
 /**La classe Article correspond au Article � disposition des client.
 * Il est caract�ris� par les informations suivantes:
@@ -26,7 +22,6 @@ import com.luna.entities.LigneCommande;
 @Service
 @Entity
 public class Article implements Serializable {
-	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -38,9 +33,6 @@ public class Article implements Serializable {
 	private float prixUnitaire;
 	private int stock;
 
-	
-	@OneToOne
-	List <LigneCommande> lignes;
 	public Article() {
 		super();
 	}
