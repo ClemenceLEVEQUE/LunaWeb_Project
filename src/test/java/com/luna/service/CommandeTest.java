@@ -1,5 +1,10 @@
 package com.luna.service;
 
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
@@ -11,40 +16,36 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
+import com.luna.entities.Client;
 import com.luna.entities.Commande;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// TODO avec Arquillian
+// Id 9, 10, 11 et 12
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes={ConteneurSpring.class})
+@ContextConfiguration(classes = { ConteneurSpring.class })
 public class CommandeTest {
 	@Autowired
-	private CommandeDAO commandeDAO;
+	private CommandeService commandeService;
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Before
-	public void BeforeTest() {
-		Commande cde1 = new Commande();
-		Commande cde2 = new Commande();
-		Commande cde3 = new Commande();
-		sessionFactory.getCurrentSession().save(cde1);
-		sessionFactory.getCurrentSession().save(cde2);
-		sessionFactory.getCurrentSession().save(cde3);
-	}
-	
+
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		Commande user = new Commande();
-		commandeDAO.insertCommande(user);
+		Commande cde = new Commande(new Client(), "12", "12", "X".charAt(0), "12", 12);
+		commandeService.add(cde);
+		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		assertNotNull(cmde);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Commande user = new Commande();
-		commandeDAO.updateCommande(user);
+		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		Commande cde = new Commande(new Client(), "13", "13", "U".charAt(0), "13", 13);
+		commandeService.update(cde);
+		Commande cmde2 = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		assertNotEquals(cmde2, cmde);
 	}
 
 	@Test
@@ -57,12 +58,14 @@ public class CommandeTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		commandeDAO.getCommande(1);
+		Commande cde = commandeService.get(12);
+		assertNotNull(cde);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		commandeDAO.getAllCommande();
+		List<Commande> commandes = commandeService.listCommande();
+		assertNotNull(commandes);
 	}
 }

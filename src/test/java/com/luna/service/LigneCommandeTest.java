@@ -1,5 +1,10 @@
 package com.luna.service;
 
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
@@ -11,40 +16,37 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
+import com.luna.entities.Article;
+import com.luna.entities.Commande;
 import com.luna.entities.LigneCommande;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// TODO avec Arquillian
+// Id 13, 14, 15 et 16
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class LigneCommandeTest {
 	@Autowired
-	private LigneCommandeDAO ligneCommandeDAO;
+	private LigneCommandeService ligneCommandeService;
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Before
-	public void BeforeTest() {
-		LigneCommande cde1 = new LigneCommande();
-		LigneCommande cde2 = new LigneCommande();
-		LigneCommande cde3 = new LigneCommande();
-		sessionFactory.getCurrentSession().save(cde1);
-		sessionFactory.getCurrentSession().save(cde2);
-		sessionFactory.getCurrentSession().save(cde3);
-	}
 	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		LigneCommande user = new LigneCommande();
-		ligneCommandeDAO.insertLigneCommande(user);
+		LigneCommande lig = new LigneCommande(new Commande(), new Article(), 16);
+		ligneCommandeService.add(lig);
+		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		assertNotNull(ligne);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		LigneCommande user = new LigneCommande();
-		ligneCommandeDAO.updateLigneCommande(user);
+		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		LigneCommande lig = new LigneCommande(new Commande(), new Article(), 17);
+		ligneCommandeService.update(lig);
+		LigneCommande ligne2 = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		assertNotEquals(ligne2, ligne);
 	}
 
 	@Test
@@ -57,12 +59,14 @@ public class LigneCommandeTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		ligneCommandeDAO.getLigneCommande(1);
+		LigneCommande lig = ligneCommandeService.get(16);
+		assertNotNull(lig);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		ligneCommandeDAO.getAllLignePourCommande(1);
+		List<LigneCommande> lig = ligneCommandeService.listLigneCommande(9);
+		assertNotNull(lig);
 	}
 }

@@ -7,6 +7,6 @@ public interface UserDAO {
 	public void insertUser(User user);
 	public void updateUser(User user);
 	public void removeUser(int idUser);
-	public User getUser(int idUser);
+	public User getUser(String login, String password);
 	public ArrayList<User> getAllUser();
 }

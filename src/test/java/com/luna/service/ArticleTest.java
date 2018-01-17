@@ -20,7 +20,7 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.Article;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// TODO Tests avec Arquillian
+// Id 1, 2, 3 et 4
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class ArticleTest {

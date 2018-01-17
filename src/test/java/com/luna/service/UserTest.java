@@ -1,5 +1,10 @@
 package com.luna.service;
 
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
@@ -14,37 +19,31 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.User;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// TODO avec Arquillian
+// Id 17, 18, 19 et 20
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class UserTest {
 	@Autowired
-	private UserDAO userDAO;
+	private UserService userService;
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Before
-	public void BeforeTest() {
-		User user1 = new User();
-		User user2 = new User();
-		User user3 = new User();
-		sessionFactory.getCurrentSession().save(user1);
-		sessionFactory.getCurrentSession().save(user2);
-		sessionFactory.getCurrentSession().save(user3);
-	}
-	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		User user = new User();
-		userDAO.insertUser(user);
+		User user = new User("20", "20");
+		userService.add(user);
+		User user1 = sessionFactory.getCurrentSession().get(User.class, 20);
+		assertNotNull(user1);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		User user = new User();
-		userDAO.updateUser(user);
+		User user1 = sessionFactory.getCurrentSession().get(User.class, 20);
+		User user = new User("21","21");
+		userService.update(user);
+		User user2 = sessionFactory.getCurrentSession().get(User.class, 20);
+		assertNotEquals(user2, user1);
 	}
 
 	@Test
@@ -57,12 +56,14 @@ public class UserTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		userDAO.getUser(1);
+		User user = userService.get("1","1");
+		assertNotNull(user);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		userDAO.getAllUser();
+		List<User> users = userService.listUser();
+		assertNotNull(users);
 	}
 }

@@ -30,8 +30,8 @@ public class UserDAOmysql implements UserDAO {
 	}
 
 	@Override
-	public User getUser(int idUser) {
-		return sessionFactory.getCurrentSession().get(User.class, idUser);
+	public User getUser(String login, String password) {
+		return (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + login + "' and mdp = '" + password + "'").getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
