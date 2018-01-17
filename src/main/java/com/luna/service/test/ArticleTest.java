@@ -1,4 +1,4 @@
-package com.luna.service;
+package com.luna.service.test;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.Article;
+import com.luna.service.ArticleService;
 
 public class ArticleTest {
 	public static void main(String[] args) {
