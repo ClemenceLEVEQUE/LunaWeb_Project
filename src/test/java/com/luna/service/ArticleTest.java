@@ -20,7 +20,7 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.Article;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// Id 1, 2, 3 et 4
+// Id 1, 2, 3 et 16
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class ArticleTest {
@@ -34,18 +34,18 @@ public class ArticleTest {
 	public void doesItInsert() {
 		Article Art = new Article("4","4","4",4,4);
 		articleService.add(Art);
-		Article article = sessionFactory.getCurrentSession().get(Article.class, 4);
+		Article article = sessionFactory.getCurrentSession().get(Article.class, 16);
 		assertNotNull(article);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Article article = sessionFactory.getCurrentSession().get(Article.class, 4);
+		Article article = sessionFactory.getCurrentSession().get(Article.class, 16);
 		Article Art = new Article("5","5","5",5,5);
-		Art.setIdArticle(4);
+		Art.setIdArticle(16);
 		articleService.update(Art);
-		Article article2 = sessionFactory.getCurrentSession().get(Article.class, 4);
+		Article article2 = sessionFactory.getCurrentSession().get(Article.class, 16);
 		assertNotEquals(article2, article);
 	}
 

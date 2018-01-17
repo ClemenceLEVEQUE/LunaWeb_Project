@@ -20,7 +20,7 @@ import com.luna.entities.Client;
 import com.luna.entities.Commande;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// Id 9, 10, 11 et 12
+// Id 7, 8, 9 et 18
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ConteneurSpring.class })
 public class CommandeTest {
@@ -32,19 +32,20 @@ public class CommandeTest {
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		Commande cde = new Commande(new Client(), "12", "12", "X".charAt(0), "12", 12);
+		Commande cde = new Commande(new Client(), "12", "12", "X".charAt(0), "12", 18);
 		commandeService.add(cde);
-		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 18);
 		assertNotNull(cmde);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 18);
 		Commande cde = new Commande(new Client(), "13", "13", "U".charAt(0), "13", 13);
+		cde.setIdCommande(18);
 		commandeService.update(cde);
-		Commande cmde2 = sessionFactory.getCurrentSession().get(Commande.class, 12);
+		Commande cmde2 = sessionFactory.getCurrentSession().get(Commande.class, 18);
 		assertNotEquals(cmde2, cmde);
 	}
 
@@ -58,7 +59,7 @@ public class CommandeTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		Commande cde = commandeService.get(12);
+		Commande cde = commandeService.get(7);
 		assertNotNull(cde);
 	}
 

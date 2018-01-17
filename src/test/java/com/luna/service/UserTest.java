@@ -19,7 +19,7 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.User;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// Id 17, 18, 19 et 20
+// Id 13, 14, 15 et 20
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class UserTest {
@@ -41,6 +41,7 @@ public class UserTest {
 	public void doesItUpdate() {
 		User user1 = sessionFactory.getCurrentSession().get(User.class, 20);
 		User user = new User("21","21");
+		user.setId(20);
 		userService.update(user);
 		User user2 = sessionFactory.getCurrentSession().get(User.class, 20);
 		assertNotEquals(user2, user1);

@@ -21,7 +21,7 @@ import com.luna.entities.Commande;
 import com.luna.entities.LigneCommande;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// Id 13, 14, 15 et 16
+// Id 10, 11, 12 et 19
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class LigneCommandeTest {
@@ -33,19 +33,20 @@ public class LigneCommandeTest {
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		LigneCommande lig = new LigneCommande(new Commande(), new Article(), 16);
+		LigneCommande lig = new LigneCommande(new Commande(), new Article(), 19);
 		ligneCommandeService.add(lig);
-		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 19);
 		assertNotNull(ligne);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 19);
 		LigneCommande lig = new LigneCommande(new Commande(), new Article(), 17);
+		lig.setIdLigne(19);
 		ligneCommandeService.update(lig);
-		LigneCommande ligne2 = sessionFactory.getCurrentSession().get(LigneCommande.class, 16);
+		LigneCommande ligne2 = sessionFactory.getCurrentSession().get(LigneCommande.class, 19);
 		assertNotEquals(ligne2, ligne);
 	}
 
@@ -59,7 +60,7 @@ public class LigneCommandeTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		LigneCommande lig = ligneCommandeService.get(16);
+		LigneCommande lig = ligneCommandeService.get(10);
 		assertNotNull(lig);
 	}
 

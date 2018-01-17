@@ -36,7 +36,7 @@ public class LigneCommandeDAOmysql implements LigneCommandeDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<LigneCommande> getAllLignePourCommande(int idCommande) {
-		return (ArrayList<LigneCommande>) sessionFactory.getCurrentSession().createQuery("from LigneCommande where idCommande = " + idCommande).getResultList();
+		return (ArrayList<LigneCommande>) sessionFactory.getCurrentSession().createQuery("from LigneCommande where commande_idCommande = " + idCommande).getResultList();
 	}
 
 }

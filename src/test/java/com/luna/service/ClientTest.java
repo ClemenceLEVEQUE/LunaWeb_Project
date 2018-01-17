@@ -20,7 +20,7 @@ import com.luna.entities.Article;
 import com.luna.entities.Client;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
-// Id 5, 6, 7 et 8
+// Id 4, 5, 6 et 17
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { ConteneurSpring.class })
 public class ClientTest {
@@ -34,17 +34,18 @@ public class ClientTest {
 	public void doesItInsert() {
 		Client Cli = new Client("8", "8", "8", "8", 8, "8", "8", "8", "8", "8");
 		clientService.add(Cli);
-		Client client = sessionFactory.getCurrentSession().get(Client.class, 8);
+		Client client = sessionFactory.getCurrentSession().get(Client.class, 17);
 		assertNotNull(client);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Client client = sessionFactory.getCurrentSession().get(Client.class, 8);
+		Client client = sessionFactory.getCurrentSession().get(Client.class, 17);
 		Client Cli = new Client("9", "9", "9", "9", 9, "9", "9", "9", "9", "9");
+		Cli.setIdClient(17);
 		clientService.update(Cli);
-		Client client2 = sessionFactory.getCurrentSession().get(Client.class, 8);
+		Client client2 = sessionFactory.getCurrentSession().get(Client.class, 17);
 		assertNotEquals(client2, client);
 	}
 
@@ -58,7 +59,7 @@ public class ClientTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		Client client = clientService.get(8);
+		Client client = clientService.get(4);
 		assertNotNull(client);
 	}
 
