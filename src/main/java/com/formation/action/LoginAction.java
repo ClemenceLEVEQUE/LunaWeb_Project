@@ -45,7 +45,10 @@ public String accueil() {
 	return SUCCESS;
 }
 	
+	public String execute() throws Exception{
+		List<User> users =userService.getAllUser();
 	
+	}
 	
 	@Override
 	public User getModel() {
