@@ -1,4 +1,4 @@
-package com.luna.dao;
+package com.luna.service;
 
 import javax.transaction.Transactional;
 

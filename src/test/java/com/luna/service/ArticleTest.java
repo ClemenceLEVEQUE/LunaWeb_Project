@@ -1,4 +1,10 @@
-package com.luna.dao;
+package com.luna.service;
+
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -19,32 +25,28 @@ import com.opensymphony.xwork2.interceptor.annotations.Before;
 @ContextConfiguration(classes={ConteneurSpring.class})
 public class ArticleTest {
 	@Autowired
-	private ArticleDAO articleDao;
+	private ArticleService articleService;
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	@Before
-	public void BeforeTest() {
-		Article art1 = new Article();
-		Article art2 = new Article();
-		Article art3 = new Article();
-		sessionFactory.getCurrentSession().save(art1);
-		sessionFactory.getCurrentSession().save(art2);
-		sessionFactory.getCurrentSession().save(art3);
-	}
 	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		Article Art = new Article();
-		articleDao.insertArticle(Art);
+		Article Art = new Article("4","4","4",4,4);
+		articleService.add(Art);
+		Article article = sessionFactory.getCurrentSession().get(Article.class, 4);
+		assertNotNull(article);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		Article Art = new Article();
-		articleDao.updateArticle(Art);
+		Article article = sessionFactory.getCurrentSession().get(Article.class, 4);
+		Article Art = new Article("5","5","5",5,5);
+		Art.setIdArticle(4);
+		articleService.update(Art);
+		Article article2 = sessionFactory.getCurrentSession().get(Article.class, 4);
+		assertNotEquals(article2, article);
 	}
 
 	@Test
@@ -57,12 +59,14 @@ public class ArticleTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		articleDao.getArticle(1);
+		Article article = articleService.get(1);
+		assertNotNull(article);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		articleDao.getAllArticle();
+		List<Article> articles = articleService.listArticle();
+		assertNotNull(articles);
 	}
 }

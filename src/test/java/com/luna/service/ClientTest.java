@@ -1,4 +1,4 @@
-package com.luna.dao;
+package com.luna.service;
 
 import javax.transaction.Transactional;
 
@@ -11,40 +11,40 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
-import com.luna.entities.LigneCommande;
+import com.luna.entities.Client;
 import com.opensymphony.xwork2.interceptor.annotations.Before;
 
 // TODO avec Arquillian
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes={ConteneurSpring.class})
-public class LigneCommandeTest {
+public class ClientTest {
 	@Autowired
-	private LigneCommandeDAO ligneCommandeDAO;
+	private ClientDAO clientDAO;
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Before
 	public void BeforeTest() {
-		LigneCommande cde1 = new LigneCommande();
-		LigneCommande cde2 = new LigneCommande();
-		LigneCommande cde3 = new LigneCommande();
-		sessionFactory.getCurrentSession().save(cde1);
-		sessionFactory.getCurrentSession().save(cde2);
-		sessionFactory.getCurrentSession().save(cde3);
+		Client cli1 = new Client();
+		Client cli2 = new Client();
+		Client cli3 = new Client();
+		sessionFactory.getCurrentSession().save(cli1);
+		sessionFactory.getCurrentSession().save(cli2);
+		sessionFactory.getCurrentSession().save(cli3);
 	}
 	
 	@Test
 	@Transactional
 	public void doesItInsert() {
-		LigneCommande user = new LigneCommande();
-		ligneCommandeDAO.insertLigneCommande(user);
+		Client Cli = new Client();
+		clientDAO.insertClient(Cli);
 	}
 
 	@Test
 	@Transactional
 	public void doesItUpdate() {
-		LigneCommande user = new LigneCommande();
-		ligneCommandeDAO.updateLigneCommande(user);
+		Client Cli = new Client();
+		clientDAO.updateClient(Cli);
 	}
 
 	@Test
@@ -57,12 +57,12 @@ public class LigneCommandeTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		ligneCommandeDAO.getLigneCommande(1);
+		clientDAO.getClient(1);
 	}
 
 	@Test
 	@Transactional
 	public void doesItGetAll() {
-		ligneCommandeDAO.getAllLignePourCommande(1);
+		clientDAO.getAllClient();
 	}
 }

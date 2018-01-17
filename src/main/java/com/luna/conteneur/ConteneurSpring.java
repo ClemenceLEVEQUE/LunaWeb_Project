@@ -51,7 +51,7 @@ public class ConteneurSpring {
 		properties.put(AvailableSettings.STATEMENT_BATCH_SIZE, env.getRequiredProperty("hibernate.batch.size"));
 
 		factoryBean.setHibernateProperties(properties);
-		factoryBean.setPackagesToScan("com.formation");
+		factoryBean.setPackagesToScan("com.luna");
 		return factoryBean;
 	}
 
