@@ -8,6 +8,6 @@ public interface ArticleService {
 	void add(Article Art);
 	void update(Article Art);
 	void delete(int idArticle);
-	void get(int idArticle);
+	Article get(int idArticle);
 	List<Article> listArticle();
 }

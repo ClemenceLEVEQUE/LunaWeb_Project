@@ -31,8 +31,8 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 	@Override
-	public void get(int idCommande) {
-		commandeDao.getCommande(idCommande);
+	public Commande get(int idCommande) {
+		return commandeDao.getCommande(idCommande);
 	}
 
 	@Override

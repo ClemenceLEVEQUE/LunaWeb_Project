@@ -8,6 +8,6 @@ public interface LigneCommandeService {
 	void add(LigneCommande ligneCo);
 	void update(LigneCommande ligneCo);
 	void delete(int idLigneCommande);
-	void get(int idLigneCommande);
+	LigneCommande get(int idLigneCommande);
 	List<LigneCommande> listLigneCommande(int idCommande);
 }

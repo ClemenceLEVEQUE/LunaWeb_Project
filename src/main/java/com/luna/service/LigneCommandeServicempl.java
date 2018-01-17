@@ -31,8 +31,8 @@ public class LigneCommandeServicempl implements LigneCommandeService {
 	}
 
 	@Override
-	public void get(int idLigneCommande) {
-		ligneCommandeDAO.getLigneCommande(idLigneCommande);
+	public LigneCommande get(int idLigneCommande) {
+		return ligneCommandeDAO.getLigneCommande(idLigneCommande);
 	}
 
 	@Override
