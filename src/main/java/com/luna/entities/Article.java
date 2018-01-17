@@ -111,7 +111,5 @@ public class Article implements Serializable {
 		this.prixUnitaire = prixUnitaire;
 		this.stock = stock;
 	}
-
-	
 	
 }
