@@ -14,8 +14,14 @@ public class ArticleDAOmysql implements ArticleDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public void insertArticle(Article article) {
-		sessionFactory.getCurrentSession().save(article);
+	public boolean insertArticle(Article article) {
+		Article art = (Article) sessionFactory.getCurrentSession().createQuery("from Article where codeArt = '" + article.getCodeArt() + "'").getSingleResult();
+		if(art != null) {
+			return false;
+		} else {
+			sessionFactory.getCurrentSession().save(article);
+			return true;
+		}
 	}
 
 	@Override
