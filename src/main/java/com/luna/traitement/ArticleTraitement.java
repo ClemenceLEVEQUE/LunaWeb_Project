@@ -1,6 +1,24 @@
 package com.luna.traitement;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.luna.service.ArticleService;
+import com.luna.entities.Article;
+
 public class ArticleTraitement {
+	@Autowired
+	ArticleService articleService;
+	
+	public String ModifierArticle(Article article) {
+		articleService.update(article);
+		return "SUCCESS";
+	}
+	
+	public String AjouterArticle(Article article) {
+		if(articleService.add(article)) {
+			return "SUCCESS";
+		} else return "ERROR";
+	}
 //	@Autowired
 //	ArticleDAO dao;
 //
@@ -41,50 +59,7 @@ public class ArticleTraitement {
 //		}
 //	}
 //
-//	public void Modifier(JTextField code, JTextField designation, JTextField prix, JTextField categ, JSlider qte,
-//			int idArticle) {
-//		if (code.getText().equals("") || designation.getText().equals("") || prix.getText().equals("")
-//				|| categ.getText().equals("")) {
-//			JOptionPane.showMessageDialog(code, "Veuillez compl�ter tous les champs.", "Ajout impossible",
-//					JOptionPane.ERROR_MESSAGE);
-//		} else {
-//			if (VerifPrix(prix)) {
-//				Article Art = new Article();
-//				Art.setCodeArt(code.getText());
-//				Art.setNomArticle(designation.getText());
-//				Art.setPrixUnitaire(Float.parseFloat(prix.getText()));
-//				Art.setCategorie(categ.getText());
-//				Art.setStock(qte.getValue());
-//				Art.setIdArticle(idArticle);
-//				dao.updateArticle(Art);
-//			}
-//		}
-//	}
 //
-//	public void Ajouter(JTextField code, JTextField designation, JTextField prix, JTextField categ, JSlider qte,
-//			JTextField Id) {
-//		if (Id.getText().equals("")) {
-//			if (code.getText().equals("") || designation.getText().equals("") || prix.getText().equals("")
-//					|| categ.getText().equals("")) {
-//				JOptionPane.showMessageDialog(Id, "Veuillez compl�ter tous les champs.", "Ajout impossible",
-//						JOptionPane.ERROR_MESSAGE);
-//			} else {
-//				if (VerifPrix(prix)) {
-//					Article Art = new Article();
-//					Art.setCodeArt(code.getText());
-//					Art.setNomArticle(designation.getText());
-//					Art.setPrixUnitaire(Float.parseFloat(prix.getText()));
-//					Art.setCategorie(categ.getText());
-//					Art.setStock(qte.getValue());
-//					dao.insertArticle(Art);
-//				}
-//			}
-//		} else {
-//			JOptionPane.showMessageDialog(Id,
-//					"Avant d'ajouter un article, r�initialiser les champs en cliquant sur \"Effacer\"",
-//					"Ajout impossible", JOptionPane.ERROR_MESSAGE);
-//		}
-//	}
 //
 //	public boolean VerifPrix(JTextField prix) {
 //		try {

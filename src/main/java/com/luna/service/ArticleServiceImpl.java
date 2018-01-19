@@ -16,8 +16,8 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDAO articleDao;
 
 	@Override
-	public void add(Article Art) {
-		articleDao.insertArticle(Art);
+	public boolean add(Article Art) {
+		return articleDao.insertArticle(Art);
 	}
 
 	@Override
