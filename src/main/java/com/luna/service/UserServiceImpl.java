@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDao;
 
 	@Override
-	public void add(User user) {
-		userDao.insertUser(user);
+	public boolean add(User user) {
+		return userDao.insertUser(user);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User get(String login, String password) {
-		return userDao.getUser(login, password);
+	public User get(User user) {
+		return userDao.getUser(user);
 	}
 }

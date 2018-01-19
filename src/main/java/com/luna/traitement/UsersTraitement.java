@@ -1,16 +1,31 @@
 package com.luna.traitement;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.luna.entities.User;
+import com.luna.service.UserService;
+
 public class UsersTraitement {
-//	private User user;
-//	
-//	public boolean Authentification() {
-//		try {
-//			state = conn.createStatement();
-//			result = state.executeQuery("SELECT * FROM Users WHERE login = '" + user.getLogin() + "' AND password = '" + user.getMdP() + "';");
-//			return result.last();
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//	}
+	@Autowired
+	private UserService userService;
+	private User user;
+	
+	public String Authentification() {
+		User userTraitement = userService.get(user);
+		if (userTraitement != null) return "SUCCESS";
+		else return "ERROR";
+	}
+	
+	public String Inscription() {
+		if (userService.add(user)) {
+			return "SUCCESS";
+		} else{
+			return "ERROR";
+		}
+	}
+	
+	public String Modification() {
+		userService.update(user);
+		return "SUCCESS";
+	}
 }

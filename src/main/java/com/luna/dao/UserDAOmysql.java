@@ -15,8 +15,14 @@ public class UserDAOmysql implements UserDAO {
 	SessionFactory sessionFactory;
 
 	@Override
-	public void insertUser(User user) {
-		sessionFactory.getCurrentSession().save(user);
+	public boolean insertUser(User user) {
+		User u = (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdP() + "'").getSingleResult();
+		if(u != null) {
+			return false;
+		} else {
+			sessionFactory.getCurrentSession().save(user);
+			return true;
+		}
 	}
 
 	@Override
@@ -30,8 +36,8 @@ public class UserDAOmysql implements UserDAO {
 	}
 
 	@Override
-	public User getUser(String login, String password) {
-		return (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + login + "' and mdp = '" + password + "'").getSingleResult();
+	public User getUser(User user) {
+		return (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdP() + "'").getSingleResult();
 	}
 
 	@SuppressWarnings("unchecked")
