@@ -16,8 +16,8 @@ public class ClientServiceImpl implements ClientService {
 	private ClientDAO clientDao;
 
 	@Override
-	public void add(Client Cli) {
-		clientDao.insertClient(Cli);
+	public boolean add(Client Cli) {
+		return clientDao.insertClient(Cli);
 	}
 
 	@Override

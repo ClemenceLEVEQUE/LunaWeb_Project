@@ -14,8 +14,14 @@ public class CommandeDAOmysql implements CommandeDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public void insertCommande(Commande Comm) {
-		sessionFactory.getCurrentSession().save(Comm);
+	public boolean insertCommande(Commande Comm) {
+		Commande cmde = (Commande) sessionFactory.getCurrentSession().createQuery("from Commande where numCom = " + Comm.getNumCom());
+		if(cmde != null) {
+			return false;
+		} else {
+			sessionFactory.getCurrentSession().save(Comm);
+			return true;
+		}
 	}
 
 	@Override

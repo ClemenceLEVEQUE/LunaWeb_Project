@@ -16,8 +16,8 @@ public class CommandeServiceImpl implements CommandeService {
 	private CommandeDAO commandeDao;
 
 	@Override
-	public void add(Commande Comm) {
-		commandeDao.insertCommande(Comm);
+	public boolean add(Commande Comm) {
+		return commandeDao.insertCommande(Comm);
 	}
 
 	@Override

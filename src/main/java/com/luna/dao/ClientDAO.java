@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import com.luna.entities.Client;
 
 public interface ClientDAO {
-	public void insertClient(Client Cli);
+	public boolean insertClient(Client Cli);
 	public void updateClient(Client Cli);
 	public void removeClient(int idClient);
 	public Client getClient(int idClient);

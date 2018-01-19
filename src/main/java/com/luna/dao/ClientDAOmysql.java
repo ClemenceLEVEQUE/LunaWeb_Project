@@ -14,8 +14,13 @@ public class ClientDAOmysql implements ClientDAO {
 	private SessionFactory sessionFactory;
 	
 	@Override
-	public void insertClient(Client Cli) {
-		sessionFactory.getCurrentSession().save(Cli);
+	public boolean insertClient(Client Cli) {
+		Client client = (Client) sessionFactory.getCurrentSession().createQuery("from Client where codeClient = '" + Cli.getCodeClient() + "'");
+		if(client != null) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	@Override

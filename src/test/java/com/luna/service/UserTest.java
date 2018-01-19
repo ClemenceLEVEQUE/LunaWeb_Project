@@ -57,7 +57,8 @@ public class UserTest {
 	@Test
 	@Transactional
 	public void doesItGet() {
-		User user = userService.get("1","1");
+		User u = new User("20", "20");
+		User user = userService.get(u);
 		assertNotNull(user);
 	}
 

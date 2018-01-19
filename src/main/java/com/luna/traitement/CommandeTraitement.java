@@ -1,6 +1,28 @@
 package com.luna.traitement;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.luna.entities.Commande;
+import com.luna.service.CommandeService;
+
 public class CommandeTraitement {
+	@Autowired
+	CommandeService commandeService;
+	
+	public String Ajouter(Commande cmde) {
+		if(commandeService.add(cmde)) {
+			return "SUCCESS";
+		} else return "ERROR";
+	}
+	
+	public String Modifier(Commande cmde) {
+		commandeService.update(cmde);
+		return "SUCCESS";
+	}
+	
+	public void Afficher(int idCommande) {
+		commandeService.get(idCommande);
+	}
 //	@Autowired
 //	LigneCommandeDAO ligne;
 //	@Autowired
