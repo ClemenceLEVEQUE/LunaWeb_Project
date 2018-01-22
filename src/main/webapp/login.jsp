@@ -15,7 +15,6 @@
 				<s:label value="LUNA_DISCOUNT">
 					<img src="images/actif.png">
 				</s:label>
-				
 				<s:textfield type="text" placeholder="Login" name="user.login" />
 				<s:textfield type="password" placeholder="Password" name="user.pwd" />
 				<s:submit name="Valider" value="Connexion" />
