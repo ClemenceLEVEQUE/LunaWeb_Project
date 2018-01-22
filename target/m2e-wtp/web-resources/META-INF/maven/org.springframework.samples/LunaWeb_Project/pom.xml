@@ -122,8 +122,9 @@
 		<!-- Tiles -->
 		<dependency>
 			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-tiles-plugin</artifactId>
-			<version>2.5.14.1</version>
+			<artifactId>struts2-tiles3-plugin</artifactId>
+			<version>2.3.20</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -131,7 +132,7 @@
 			<artifactId>tiles-extras</artifactId>
 			<version>3.0.5</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
@@ -148,7 +149,7 @@
 			<artifactId>commons-logging-api</artifactId>
 			<version>1.1</version>
 		</dependency>
-		
+
 		<!-- Javax -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -196,7 +197,7 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
@@ -217,7 +218,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
