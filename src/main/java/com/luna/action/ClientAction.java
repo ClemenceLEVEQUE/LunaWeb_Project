@@ -1,3 +1,4 @@
+package com.luna.action;
 //package com.formation.action;
 //
 //import org.apache.struts2.convention.annotation.Action;
@@ -24,7 +25,7 @@
 //
 //	private Client client;
 //	@Autowired
-//	private ClientTraitement clientTraitement;
+//	private ClientService clientService;
 //	
 //	
 //	

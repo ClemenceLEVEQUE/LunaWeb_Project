@@ -1,3 +1,4 @@
+package com.luna.action;
 //package com.formation.action;
 //
 //import org.apache.struts2.convention.annotation.Action;
