@@ -1,6 +1,28 @@
 package com.luna.traitement;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.luna.entities.Client;
+import com.luna.service.ClientService;
+
 public class ClientTraitement {
+	@Autowired
+	ClientService clientService;
+	
+	public String Ajouter(Client cli) {
+		if(clientService.add(cli)) {
+			return "SUCCESS";
+		} else return "ERROR";
+	}
+	
+	public String Modifier(Client cli) {
+		clientService.update(cli);
+		return "SUCCESS";
+	}
+	
+	public void Afficher(int idClient) {
+		clientService.get(idClient);
+	}
 //	@Autowired
 //	ClientDAO client;
 //

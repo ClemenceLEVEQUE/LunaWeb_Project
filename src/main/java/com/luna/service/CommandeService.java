@@ -5,7 +5,7 @@ import java.util.List;
 import com.luna.entities.Commande;
 
 public interface CommandeService {
-	void add(Commande Comm);
+	boolean add(Commande Comm);
 	void update(Commande Comm);
 	void delete(int idCommande);
 	Commande get(int idCommande);

@@ -1,23 +1,30 @@
 package com.luna.traitement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.luna.service.ArticleService;
 import com.luna.entities.Article;
 
+@Service
 public class ArticleTraitement {
 	@Autowired
 	ArticleService articleService;
 	
-	public String ModifierArticle(Article article) {
+	public String Modifier(Article article) {
 		articleService.update(article);
 		return "SUCCESS";
 	}
 	
-	public String AjouterArticle(Article article) {
+	public String Ajouter(Article article) {
 		if(articleService.add(article)) {
 			return "SUCCESS";
 		} else return "ERROR";
+	}
+	
+	public void Afficher(int idArticle) {
+		Article article = articleService.get(idArticle);
+		
 	}
 //	@Autowired
 //	ArticleDAO dao;
