@@ -1,16 +1,16 @@
 package com.formation.action;
 
-import java.util.List;
+
 
 import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Actions;
+
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.luna.entities.User;
 import com.luna.service.UserService;
-import com.luna.traitement.UsersTraitement;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 @Action("login")
@@ -21,20 +21,21 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	
 	private User user;
 	@Autowired
-	private UsersTraitement usersTraitement;
+	private UserService userService;
 	
 	
 	@Override
 	public String execute() throws Exception {
-		return usersTraitement.Authentification(user);
+		User userServ =userService.get(user);
+		if (userServ != null) {
+			return SUCCESS;
+		}else return ERROR;
 	}
-
 
 	@Override
 	public User getModel() {
 		return user;
 	}
-
 
 	public User getUser() {
 		return user;
@@ -46,18 +47,13 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	}
 
 
-	public UsersTraitement getUsersTraitement() {
-		return usersTraitement;
+	public UserService getUserService() {
+		return userService;
 	}
 
 
-	public void setUsersTraitement(UsersTraitement usersTraitement) {
-		this.usersTraitement = usersTraitement;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
-
-
-
-
-	
 
 }
