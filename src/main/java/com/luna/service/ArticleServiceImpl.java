@@ -18,21 +18,21 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public String add(Article Art) {
 		if(articleDao.insertArticle(Art)) {
-			return "SUCCESS";
-		} else return "ERROR";
+			return "insert";
+		} else return "errorAdd";
 	}
 
 	@Override
 	public String update(Article Art) {
 		articleDao.updateArticle(Art);
-		return "SUCCESS";
-	}
+		return "update";
 
+	}
 	@Override
 	public String delete(int idArticle) {
 		if(	articleDao.removeArticle(idArticle)) {
-			return "SUCCESS";
-		} else return "ERROR";
+			return "delete";
+		} else return "errorDelete";
 	}
 
 	@Override
@@ -44,4 +44,4 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> listArticle() {
 		return articleDao.getAllArticle();
 	}
-}
+	}
