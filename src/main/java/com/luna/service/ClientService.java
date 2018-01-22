@@ -5,9 +5,9 @@ import java.util.List;
 import com.luna.entities.Client;
 
 public interface ClientService {
-	boolean add(Client Cli);
-	void update(Client Cli);
-	void delete(int idClient);
+	String add(Client Cli);
+	String update(Client Cli);
+	String delete(int idClient);
 	Client get(int idClient);
 	List<Client> listClient();
 }

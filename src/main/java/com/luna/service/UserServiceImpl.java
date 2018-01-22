@@ -16,22 +16,16 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDao;
 
 	@Override
-	public boolean add(User user) {
+	public String add(User user) {
 		return userDao.insertUser(user);
 	}
-
 	@Override
-	public List<User> listUser() {
-		return userDao.getAllUser();
-	}
-
-	@Override
-	public void update(User user) {
+	public String update(User user) {
 		userDao.updateUser(user);
 	}
 
 	@Override
-	public void delete(int idUser) {
+	public String delete(int idUser) {
 		userDao.removeUser(idUser);
 	}
 
@@ -39,4 +33,10 @@ public class UserServiceImpl implements UserService {
 	public User get(User user) {
 		return userDao.getUser(user);
 	}
+
+	@Override
+	public List<User> listUser() {
+		return userDao.getAllUser();
+	}
+
 }

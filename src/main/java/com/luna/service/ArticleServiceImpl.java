@@ -16,18 +16,22 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDAO articleDao;
 
 	@Override
-	public boolean add(Article Art) {
-		return articleDao.insertArticle(Art);
+	public String add(Article Art) {
+		if(articleDao.insertArticle(Art)) {
+			return "SUCCESS";
+		} else return "ERROR";
 	}
 
 	@Override
-	public void update(Article Art) {
+	public String update(Article Art) {
 		articleDao.updateArticle(Art);
+		return "SUCCESS";
 	}
 
 	@Override
-	public void delete(int idArticle) {
+	public String delete(int idArticle) {
 		articleDao.removeArticle(idArticle);
+		return null;
 	}
 
 	@Override
