@@ -60,5 +60,7 @@ public class AddValuesForTest {
 		userService.add(user1);
 		userService.add(user2);
 		userService.add(user3);
+		
+		context.close();
 	}
 }
