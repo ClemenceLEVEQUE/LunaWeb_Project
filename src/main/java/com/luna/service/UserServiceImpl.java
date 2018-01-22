@@ -17,16 +17,20 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public String add(User user) {
-		return userDao.insertUser(user);
+		if(userDao.insertUser(user)) {
+			return "SUCCESS";
+		} else return "ERROR";
 	}
 	@Override
 	public String update(User user) {
 		userDao.updateUser(user);
+		return "SUCCESS";
 	}
 
 	@Override
 	public String delete(int idUser) {
 		userDao.removeUser(idUser);
+		return null;
 	}
 
 	@Override

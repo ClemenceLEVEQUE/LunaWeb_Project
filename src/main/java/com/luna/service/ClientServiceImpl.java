@@ -17,17 +17,21 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public String add(Client Cli) {
-		return clientDao.insertClient(Cli);
+		if (clientDao.insertClient(Cli)) {
+			return "SUCCESS";
+		} else return "ERROR";
 	}
 
 	@Override
 	public String update(Client Cli) {
 		clientDao.updateClient(Cli);
+		return "SUCCESS";
 	}
 
 	@Override
 	public String delete(int idClient) {
 		clientDao.removeClient(idClient);
+		return null;
 	}
 
 	@Override
