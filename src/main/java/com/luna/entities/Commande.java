@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
  *         Commande total correspond au prix total de la commande
  *
  */
-@Service
+
 @Entity
 
 public class Commande implements Serializable {

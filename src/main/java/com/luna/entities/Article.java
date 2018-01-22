@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 * le stock disponible(stock);
 * */
 
-@Service
+
 @Entity
 public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 import org.springframework.stereotype.Service;
 
-@Service
+
 @Entity
 
 public class Client implements Serializable{

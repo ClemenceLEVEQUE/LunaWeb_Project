@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Service;
-@Service
+
 @Entity
 public class LigneCommande implements Serializable{
 

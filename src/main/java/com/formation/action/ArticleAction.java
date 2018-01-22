@@ -1,22 +1,27 @@
 package com.formation.action;
 
+import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.luna.entities.Article;
-import com.luna.entities.Commande;
-import com.luna.traitement.ArticleTraitement;
-import com.luna.traitement.ClientTraitement;
-import com.luna.traitement.CommandeTraitement;
+
+import com.luna.service.ArticleService;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
 @Action("/ajoutModifArticle")
 
-@Results({ @Result(name = "success", location = "ajoutModifArticle.jsp")})
+@Results({ @Result(name = "success", location = "ajoutModifArticle.jsp"),
+@Result(name= "listArt" , location = "ajoutModifArticle.jsp"),
+
+
+})
 public class ArticleAction extends ActionSupport implements ModelDriven<Article>{
 
 	/**
@@ -26,15 +31,15 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	
 	private Article article;
 	@Autowired
-	private ArticleTraitement articleTraitement;
-
+	private ArticleService articleService;
+    private List<Article> AllArticle;
 	
 	
-
+@Action("AffichageArticle")
 	@Override
 	public String execute() throws Exception {
-		article = ArticleTraitement.AfficherArticle();
-		return SUCCESS;
+		AllArticle= articleService.listArticle();
+		return "success";
 	}
 	
 	
@@ -56,25 +61,41 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 
 
-	public ArticleTraitement getArticleTraitement() {
-		return articleTraitement;
+
+
+
+
+	public ArticleService getArticleService() {
+		return articleService;
 	}
 
 
 
 
-
-	public void setArticleTraitement(ArticleTraitement articleTraitement) {
-		this.articleTraitement = articleTraitement;
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
 	}
 
+
+
+
+	public List<Article> getAllArticle() {
+		return AllArticle;
+	}
+
+
+
+
+	public void setAllArticle(List<Article> allArticle) {
+		AllArticle = allArticle;
+	}
 
 
 
 
 	@Override
 	public Article getModel() {
-		return null;
+		return article;
 	}
 
 }
