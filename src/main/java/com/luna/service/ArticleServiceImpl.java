@@ -30,8 +30,9 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public String delete(int idArticle) {
-		articleDao.removeArticle(idArticle);
-		return null;
+		if(	articleDao.removeArticle(idArticle)) {
+			return "SUCCESS";
+		} else return "ERROR";
 	}
 
 	@Override

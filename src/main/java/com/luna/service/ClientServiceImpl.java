@@ -30,8 +30,10 @@ public class ClientServiceImpl implements ClientService {
 
 	@Override
 	public String delete(int idClient) {
-		clientDao.removeClient(idClient);
-		return null;
+		if(clientDao.removeClient(idClient)) {
+			return "SUCCESS";
+		}
+		return "ERROR";
 	}
 
 	@Override

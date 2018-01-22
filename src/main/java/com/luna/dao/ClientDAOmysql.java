@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.luna.entities.Client;
+import com.luna.entities.Commande;
 
 @Repository
 public class ClientDAOmysql implements ClientDAO {
@@ -19,6 +20,7 @@ public class ClientDAOmysql implements ClientDAO {
 		if(client != null) {
 			return false;
 		} else {
+			sessionFactory.getCurrentSession().save(Cli);
 			return true;
 		}
 	}
@@ -29,8 +31,14 @@ public class ClientDAOmysql implements ClientDAO {
 	}
 
 	@Override
-	public void removeClient(int idClient) {
-		// TODO
+	public boolean removeClient(int idClient) {
+		Commande cmde = (Commande) sessionFactory.getCurrentSession().createQuery("from Commande where client_idClient = " + idClient).getSingleResult();
+		if(cmde != null) {
+			return false;
+		} else{
+			sessionFactory.getCurrentSession().createQuery("delete Client where idClient = " + idClient).executeUpdate();
+			return true;
+		}
 	}
 
 	@Override

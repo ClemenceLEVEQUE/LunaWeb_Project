@@ -3,6 +3,7 @@ package com.luna.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -52,7 +53,7 @@ public class Commande implements Serializable {
 	 * On creer un constructeur par default de commande
 	 * 
 	 */
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List <LigneCommande>  lignes;
 	
 	public Commande() {

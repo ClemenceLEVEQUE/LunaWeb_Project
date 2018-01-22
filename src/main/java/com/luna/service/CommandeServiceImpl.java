@@ -31,7 +31,7 @@ public class CommandeServiceImpl implements CommandeService {
 	@Override
 	public String delete(int idCommande) {
 		commandeDao.removeCommande(idCommande);
-		return null;
+		return "SUCCESS";
 	}
 
 	@Override

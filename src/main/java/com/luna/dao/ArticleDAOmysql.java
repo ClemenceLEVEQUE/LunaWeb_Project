@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.luna.entities.Article;
+import com.luna.entities.LigneCommande;
 
 @Repository
 public class ArticleDAOmysql implements ArticleDAO {
@@ -30,8 +31,14 @@ public class ArticleDAOmysql implements ArticleDAO {
 	}
 
 	@Override
-	public void removeArticle(int idArticle) {
-		// TODO
+	public boolean removeArticle(int idArticle) {
+		LigneCommande ligne = (LigneCommande) sessionFactory.getCurrentSession().createQuery("from LigneCommande where article_idArticle = " + idArticle).getSingleResult();
+		if(ligne != null) {
+			return false;
+		} else {
+			sessionFactory.getCurrentSession().createQuery("delete Article where idArticle = " + idArticle).executeUpdate();
+			return true;
+		}
 	}
 
 	@Override
