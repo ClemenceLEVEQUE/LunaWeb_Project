@@ -14,14 +14,19 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
-@Action("/ajoutModifClient")
 
-@Results({ @Result(name = "success", location = "ajoutModifClient.jsp")})
+@Results({ @Result(name = "success", location = "listeClient.jsp"),
+	@Result(name= "insert" , location = "listeClient.jsp"),
+	@Result(name="errorAdd", location = "ajoutClient.jsp"),
+	@Result(name="delete" , location= "listeClient.jsp"),
+	@Result(name="errorDelete" , location="listeClient.jsp"),
+	@Result(name="update", location="modifClient.jsp")
+
+	})
+
 public class ClientAction extends ActionSupport implements ModelDriven<Client>{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private Client client;
@@ -31,10 +36,26 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>{
 	private List<Client> Allclient;
 	
 
+@Action("AffichageClient")
 	@Override
 	public String execute() throws Exception {
 		Allclient = clientService.listClient();
 		return "success";
+	}
+	
+	@Action("insertClient")
+	public String insertClient() throws Exception {
+		return clientService.add(client);
+	}
+	
+	@Action("deleteClient")
+	public String delete() throws Exception{
+		return clientService.delete(client.getIdClient());
+	}
+	
+	@Action("updateClient")
+	public String updateClient() throws Exception {
+		return clientService.update(client);
 	}
 	
 	public Client getClient() {
