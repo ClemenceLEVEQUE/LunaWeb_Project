@@ -44,7 +44,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 @Action("AffichageArticle")
 	@Override
 	public String execute() throws Exception {
-		 AllArticle= articleService.listArticle();
+		 setAllArticle(articleService.listArticle());
 		return "success";
 	}
 	
