@@ -8,6 +8,21 @@
 <title>Formulaire Article</title>
 </head>
 <body>
+	<div class="formulaire">
+		<fieldset>
+			<legend>Information Articles</legend>
+			<s:form action="AffichageArticle" method="post">
+				<div class="ligne">
+					<s:textfield label="NomArticle" required="true" name="nomArticle"></s:textfield>
+					<s:textfield label="Quantité" required="true" name="quantite"></s:textfield>
+					<s:textfield label="PrixUnitaire" required="true" name="prixUnitaire"></s:textfield>
+				</div>
+				<div class="ligne">
+					<s:textfield label="Catégorie" required="true" name="categorie"></s:textfield>
+				</div>
+			</s:form>
+		</fieldset>
+	</div><body>
 
 
 	<div class="affichageArticle">
@@ -27,12 +42,11 @@
 						class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
 						<td><s:property value="idArticle" /></td>
 						<td><s:property value="nomArticle" /></td>
-						<td><s:property value="Stock" /></td>
-						<td><s:property value="prix" /></td>
-						<td><s:property value="categorie.nom" /></td>
+						<td><s:property value="stock" /></td>
+						<td><s:property value="prixUnitaire" /></td>
+						<td><s:property value="categorie" /></td>
 					</tr>
 				</s:iterator>
-				
 			</table>
 		</s:if>
 	</div>

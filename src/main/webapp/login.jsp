@@ -16,7 +16,7 @@
 					<img src="images/actif.png">
 				</s:label>
 				<s:textfield type="text" placeholder="Login" name="user.login" />
-				<s:textfield type="password" placeholder="Password" name="user.pwd" />
+				<s:textfield type="password" placeholder="Password" name="user.mdp" />
 				<s:submit name="Valider" value="Connexion" />
 				
 				
