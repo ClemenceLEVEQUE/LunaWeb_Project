@@ -19,12 +19,12 @@ import com.opensymphony.xwork2.ModelDriven;
 
 
 
-@Results({ @Result(name = "SUCCESS", location = "listeArticle.jsp"),
-@Result(name= "insert" , location = "listeArticle.jsp"),
-@Result(name="errorAdd", location = "ajoutArticle.jsp"),
-@Result(name="delete" , location= "listeArticle.jsp"),
-@Result(name="errorDelete" , location="listeArticle.jsp"),
-@Result(name="update", location="modifArticle.jsp")
+@Results({ @Result(name = "SUCCESS", location = "/listeArticle.jsp"),
+@Result(name= "insert" , location = "/listeArticle.jsp"),
+@Result(name="errorAdd", location = "/ajoutArticle.jsp"),
+@Result(name="delete" , location= "/listeArticle.jsp"),
+@Result(name="errorDelete" , location="/listeArticle.jsp"),
+@Result(name="update", location="/modifArticle.jsp")
 
 
 })
