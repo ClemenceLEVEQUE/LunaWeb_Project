@@ -3,15 +3,15 @@ package com.luna.maintest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.luna.conteneur.ConteneurSpring;
-import com.luna.entities.Article;
-import com.luna.entities.Client;
-import com.luna.entities.Commande;
-import com.luna.entities.LigneCommande;
+//import com.luna.entities.Article;
+//import com.luna.entities.Client;
+//import com.luna.entities.Commande;
+//import com.luna.entities.LigneCommande;
 import com.luna.entities.User;
 import com.luna.service.ArticleService;
-import com.luna.service.ClientService;
-import com.luna.service.CommandeService;
-import com.luna.service.LigneCommandeService;
+//import com.luna.service.ClientService;
+//import com.luna.service.CommandeService;
+//import com.luna.service.LigneCommandeService;
 import com.luna.service.UserService;
 
 public class AddValuesForTest {

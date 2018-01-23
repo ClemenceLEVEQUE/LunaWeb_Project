@@ -3,7 +3,6 @@ com\luna\dao\UserDAO.class
 com\luna\action\InscriptionAction.class
 com\luna\entities\Article.class
 com\luna\entities\LigneCommande.class
-com\luna\action\TestAction.class
 com\luna\entities\Commande.class
 com\luna\service\CommandeService.class
 com\luna\action\CommandeAction.class
@@ -22,7 +21,6 @@ com\luna\service\LigneCommandeServicempl.class
 com\luna\dao\ClientDAOmysql.class
 com\luna\dao\ArticleDAOmysql.class
 com\luna\dao\CommandeDAO.class
-com\luna\action\HomePageAction.class
 com\luna\dao\LigneCommandeDAOmysql.class
 com\luna\dao\ArticleDAO.class
 com\luna\dao\LigneCommandeDAO.class
