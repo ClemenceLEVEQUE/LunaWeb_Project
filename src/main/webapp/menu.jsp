@@ -7,8 +7,8 @@
 <title>Luna Project</title>
 </head>
 <body>
-	<a href="listeArticle.jsp">Articles</a>
-	<a href="listeClient.jsp">Clients</a>
-	<a href="listeCommande.jsp">Commandes</a>
+	<a href="AffichageArticle">Articles</a>
+	<a href="AffichageClient">Clients</a>
+	<a href="AffichageCommande">Commandes</a>
 </body>
 </html>
