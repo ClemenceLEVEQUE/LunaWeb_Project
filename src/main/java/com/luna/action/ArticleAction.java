@@ -19,8 +19,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorAdd", location = "/ajoutArticle.jsp"),
 		@Result(name = "delete", location = "/listeArticle.jsp"),
 		@Result(name = "errorDelete", location = "/listeArticle.jsp"),
-		@Result(name = "update", location = "/modifArticle.jsp")
-})
+		@Result(name = "update", location = "/modifArticle.jsp") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 
