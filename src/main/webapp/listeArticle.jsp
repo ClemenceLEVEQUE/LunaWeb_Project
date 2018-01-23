@@ -32,7 +32,7 @@
 		<s:if test="getModels()!=null">
 			<table>
 				<tr class="entete">
-					<td>idArti cle</td>
+					<td>idArticle</td>
 					<td>nomArticle</td>
 					<td>Quantité</td>
 					<td>PrixUnitaire</td>

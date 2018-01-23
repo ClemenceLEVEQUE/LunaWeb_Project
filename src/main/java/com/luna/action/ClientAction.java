@@ -15,12 +15,12 @@ import com.opensymphony.xwork2.ModelDriven;
 
 
 
-@Results({ @Result(name = "success", location = "listeClient.jsp"),
-	@Result(name= "insert" , location = "listeClient.jsp"),
-	@Result(name="errorAdd", location = "ajoutClient.jsp"),
-	@Result(name="delete" , location= "listeClient.jsp"),
-	@Result(name="errorDelete" , location="listeClient.jsp"),
-	@Result(name="update", location="modifClient.jsp")
+@Results({ @Result(name = "success", location = "/listeClient.jsp"),
+	@Result(name= "insert" , location = "/listeClient.jsp"),
+	@Result(name="errorAdd", location = "/ajoutClient.jsp"),
+	@Result(name="delete" , location= "/listeClient.jsp"),
+	@Result(name="errorDelete" , location="/listeClient.jsp"),
+	@Result(name="update", location="/modifClient.jsp")
 
 	})
 
@@ -33,13 +33,13 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>{
 	@Autowired
 	private ClientService clientService;
 	
-	private List<Client> Allclient;
+	private List<Client> models;
 	
 
 @Action("AffichageClient")
 	@Override
 	public String execute() throws Exception {
-		Allclient = clientService.listClient();
+	setModels();
 		return "success";
 	}
 	
@@ -75,14 +75,19 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client>{
 		this.clientService = clientService;
 	}
 
-	public List<Client> getAllclient() {
-		return Allclient;
+
+	public List<Client> getModels() {
+		return models;
 	}
 
-	public void setAllclient(List<Client> allclient) {
-		Allclient = allclient;
+	public void setModels(List<Client> models) {
+		this.models = models;
 	}
 
+	public void setModels() {
+		this.models = clientService.listClient();
+	}
+	
 	@Override
 	public Client getModel() {
 		return client;
