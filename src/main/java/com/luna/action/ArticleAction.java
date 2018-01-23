@@ -72,6 +72,12 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	public void setModels() {
 		this.models = articleService.listArticle();
+
+		// POUR VOIR LES VALEURS
+		for (Article art : models) {
+			System.out.println(art.getCategorie() + " " + art.getCodeArt() + " " + art.getIdArticle() + " "
+					+ art.getNomArticle() + " " + art.getPrixUnitaire() + " " + art.getStock());
+		}
 	}
 
 	@Override
