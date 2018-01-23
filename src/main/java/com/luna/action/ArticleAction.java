@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 
 
-@Results({ @Result(name = "success", location = "listeArticle.jsp"),
+@Results({ @Result(name = "SUCCESS", location = "listeArticle.jsp"),
 @Result(name= "insert" , location = "listeArticle.jsp"),
 @Result(name="errorAdd", location = "ajoutArticle.jsp"),
 @Result(name="delete" , location= "listeArticle.jsp"),
@@ -45,7 +45,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Override
 	public String execute() throws Exception {
 		 setModels(articleService.listArticle());
-		return "success";
+		return SUCCESS;
 	}
 	
 	
