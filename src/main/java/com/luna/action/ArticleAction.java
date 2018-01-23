@@ -15,7 +15,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "SUCCESS", location = "/listeArticle.jsp"),
-		@Result(name = "insert", location = "/listeArticle.jsp"),
+		@Result(name = "insert", type="redirectAction", location = "/AffichageArticle.action"),
 		@Result(name = "errorAdd", location = "/ajoutArticle.jsp"),
 		@Result(name = "delete", location = "/listeArticle.jsp"),
 		@Result(name = "errorDelete", location = "/listeArticle.jsp"),
@@ -41,8 +41,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	}
 
 	@Action("deleteArt")
-	public String deleteArticle() throws Exception {
-		return articleService.delete(article.getIdArticle());
+	public String deleteArticle(int id) throws Exception {
+		return articleService.delete(id);
 	}
 
 	@Action("updateArt")

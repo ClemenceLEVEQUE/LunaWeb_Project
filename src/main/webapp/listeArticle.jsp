@@ -28,6 +28,7 @@
 </style>
 </head>
 <body>
+/!\ LE BOUTON SUPPRIMER NE FONCTIONNE PAS /!\
 	<div class="listeArticle">
 		<s:if test="getModels()!=null">
 			<table>
@@ -50,7 +51,7 @@
 						<td width="20%"><s:property value="prixUnitaire" /></td>
 						<td width="20%"><s:property value="categorie" /></td>
 						<td width="20%"><s:property value="codeArt" /></td>
-						<td><a href="deleteArt">Supprimer</a></td>
+						<td><a href="deleteArt?id=1">Supprimer</a></td>
 					</tr>
 				</s:iterator>
 			</table>
