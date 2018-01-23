@@ -38,6 +38,7 @@
 					<td>PrixUnitaire</td>
 					<td>Catégorie</td>
 					<td>CodeArt</td>
+					<td>S</td>
 				</tr>
 
 				<s:iterator value="getModels()" status="modelsStatus">
@@ -49,6 +50,7 @@
 						<td width="20%"><s:property value="prixUnitaire" /></td>
 						<td width="20%"><s:property value="categorie" /></td>
 						<td width="20%"><s:property value="codeArt" /></td>
+						<td><a href="deleteArt">Supprimer</a></td>
 					</tr>
 				</s:iterator>
 			</table>
