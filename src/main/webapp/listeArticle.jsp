@@ -30,6 +30,7 @@
 						<td width="20%"><s:property value="article.categorie" /></td>
 					</tr>
 				</s:iterator>
+				
 			</table>
 		</s:if>
 	</div>
