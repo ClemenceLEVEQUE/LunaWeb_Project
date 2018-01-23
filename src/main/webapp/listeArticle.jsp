@@ -8,33 +8,34 @@
 <title>Formulaire Article</title>
 </head>
 <body>
-	<div class="ListeArticle">
-	
-	<s:form action="AffichageArticle" method="post">
-<s:if test="getAllArticle()!=null">
-		<table>
-			<tr class="entete">
-					<td>idArticle</td>
-					<td>nomArticle</td>
-					<td>Quantité</td>
-					<td>PrixUnitaire</td>
-					<td>Catégorie</td>
-					<td>CodeArt</td>
-				</tr>
 
-			<s:iterator value="getAllArticle()" status="modelsStatus">
-				<tr
-					class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-					<td width="10%"><s:property value="idArticle" /></td>
-					<td width="20%"><s:property value="nomArticle" /></td>
-					<td width="20%"><s:property value="stock"/></td>
-					<td width="20%"><s:property value="prixUnitaire" /></td>
-					<td width="20%"><s:property value="categorie" /></td>
-				</tr>
-			</s:iterator>
-		</table>
-	</s:if>
-</s:form>
+	<div class="listeArticle">
+
+		<s:form action="AffichageArticle" method="post">
+			<s:if test="getModels()!=null">
+				<table>
+					<tr class="entete">
+						<td>idArticle</td>
+						<td>nomArticle</td>
+						<td>Quantité</td>
+						<td>PrixUnitaire</td>
+						<td>Catégorie</td>
+						<td>CodeArt</td>
+					</tr>
+
+					<s:iterator value="getModels()" status="modelsStatus">
+						<tr
+							class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+							<td width="10%"><s:property value="idArticle" /></td>
+							<td width="20%"><s:property value="nomArticle" /></td>
+							<td width="20%"><s:property value="stock" /></td>
+							<td width="20%"><s:property value="prixUnitaire" /></td>
+							<td width="20%"><s:property value="categorie" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</s:if>
+		</s:form>
 	</div>
 </body>
 </html>

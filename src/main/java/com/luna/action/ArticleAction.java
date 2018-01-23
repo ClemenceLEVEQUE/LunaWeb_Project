@@ -38,13 +38,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	private Article article;
 	@Autowired
 	private ArticleService articleService;
-    private List<Article> AllArticle;
+    private List<Article> models;
 
 	
 @Action("AffichageArticle")
 	@Override
 	public String execute() throws Exception {
-		 setAllArticle(articleService.listArticle());
+		 setModels(articleService.listArticle());
 		return "success";
 	}
 	
@@ -99,18 +99,18 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 
 
-	public List<Article> getAllArticle() {
-		return AllArticle;
+
+
+
+
+	public List<Article> getModels() {
+		return models;
 	}
 
 
-
-
-	public void setAllArticle(List<Article> allArticle) {
-		AllArticle = allArticle;
+	public void setModels(List<Article> models) {
+		this.models = models;
 	}
-
-
 
 
 	@Override
