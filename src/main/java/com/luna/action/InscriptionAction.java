@@ -10,8 +10,9 @@ import com.luna.entities.User;
 import com.luna.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-@Action("/inscription")
-@Results(value= {@Result (name="SUCCESS", location ="/login.jsp"), @Result(name="ERROR", location="/inscription.jsp")})
+
+@Results(value= {@Result (name="SUCCESS", location ="/login.jsp"), @Result(name="ERROR", location="/inscription.jsp"),
+		@Result(name= "update", location= "/modifUser.jsp")})
 
 
 
@@ -23,11 +24,16 @@ public class InscriptionAction extends ActionSupport implements ModelDriven<User
 	
 	
 	private static final long serialVersionUID = 1L;
-
+	@Action("inscription")
 	public String inscription() throws Exception {
-		return UserService.add(user);	}
+		return userService.add(user);	}
 
+	@Action("updateUser")
+	public String updateArticle() throws Exception{
+		return userService.update(user);
+	}
 	
+
 	
 	
 	
@@ -59,15 +65,16 @@ public class InscriptionAction extends ActionSupport implements ModelDriven<User
 		this.userService = userService;
 	}
 
-
-
-
-
 	@Override
 	public User getModel() {
-		
-		return User;
+
+
+		return user;
 	}
+
+
+
+
 
 
 	
