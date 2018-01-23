@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Namespace("/")
-@Result(name="success", location="/test.jsp" )
+@Result(name="insert", location="/test.jsp" )
 public class TestAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,8 @@ public class TestAction extends ActionSupport implements ModelDriven<Article> {
 	@Override
 	@Action("roland")
 	public String execute() {
-		//return articleService.add(article);
 		System.out.println("kjdfhjdhfqdjghjdsghdSJHGjsdghjldghl");
-		return SUCCESS;
+		return articleService.add(article);
 		
 		
 	}

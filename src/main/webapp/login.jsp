@@ -13,7 +13,7 @@
 <body>
 	<div class="login">
 		<div class="format">
-			<s:form action="roland">
+			<s:form action="login">
 				<s:label value="LUNA_DISCOUNT">
 					<img src="../resources/com/luna/graphique/actif.png" />
 				</s:label>

@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="clemence">
+	<s:form action="insertArt">
 		<s:textfield type="text" placeholder="Code article" name="article.codeArt"/>
 		<s:textfield type="text" placeholder="Designation" name="article.nomArticle"/>
 		<s:textfield type="text" placeholder="Categorie" name="article.categorie"/>
