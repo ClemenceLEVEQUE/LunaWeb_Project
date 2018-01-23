@@ -8,13 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form>
-		<s:textfield/>
-		<s:textfield/>
-		<s:textfield/>
-		<s:textfield/>
-		<s:textfield/>
-		<s:submit></s:submit>
+	<s:form action="insertArt" method="post">
+		<s:textfield placeholder="Code article" name="article.codeArt"/>
+		<s:textfield placeholder="Designation" name="article.nomArticle"/>
+		<s:textfield placeholder="Categorie" name="article.categorie"/>
+		<s:textfield placeholder="Prix unit." name="article.prixUnitaire"/>
+		<s:textfield placeholder="Stock" name="article.stock"/>
+		<s:submit value="Créer l'article" />
 	</s:form>
 </body>
 </html>
