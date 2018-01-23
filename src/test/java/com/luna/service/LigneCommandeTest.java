@@ -19,7 +19,7 @@ import com.luna.conteneur.ConteneurSpring;
 import com.luna.entities.Article;
 import com.luna.entities.Commande;
 import com.luna.entities.LigneCommande;
-import com.opensymphony.xwork2.interceptor.annotations.Before;
+
 
 // Id 10, 11, 12 et 19
 @RunWith(SpringJUnit4ClassRunner.class)
