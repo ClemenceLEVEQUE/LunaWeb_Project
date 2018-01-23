@@ -52,11 +52,11 @@ public class User implements Serializable{
 		this.login = login;
 	}
 
-	public String getMdP() {
+	public String getMdp() {
 		return mdp;
 	}
 
-	public void setMdP(String mdp) {
+	public void setMdp(String mdp) {
 		this.mdp = mdp;
 	}
 

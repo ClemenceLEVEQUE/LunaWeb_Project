@@ -14,7 +14,7 @@ import com.luna.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 @Action("login")
-@Results(value= {@Result(name="SUCCESS", location="/index.jsp"),@Result(name="ERROR", location="/login.jsp")})
+@Results(value= {@Result(name="SUCCESS", location="/menu.jsp"),@Result(name="ERROR", location="/login.jsp")})
 public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	
 	private static final long serialVersionUID = 1L;
@@ -28,8 +28,8 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
 	public String execute() throws Exception {
 		User userServ =userService.get(user);
 		if (userServ != null) {
-			return SUCCESS;
-		}else return ERROR;
+			return "SUCCESS";
+		}else return "ERROR";
 	}
 
 	@Override
