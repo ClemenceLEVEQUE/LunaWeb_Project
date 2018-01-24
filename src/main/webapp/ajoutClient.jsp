@@ -17,7 +17,7 @@
 		<s:textfield placeholder="Tel." name="client.tel" />
 		<s:textfield placeholder="Mail" name="client.mail" />
 		<s:textfield placeholder="Code client" name="client.codeClient" />
-		<s:textfield placeholder="Remarques" name="client.remarques" />
+		<s:textarea placeholder="Remarques" name="client.remarques" />
 		<s:submit value="Créer l'article" />
 	</s:form>
 </body>

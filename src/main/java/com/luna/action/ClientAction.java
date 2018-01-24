@@ -18,6 +18,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorAdd", location = "/ajoutClient.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "/AffichageClient.action"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "/AffichageClient.action"),
+		@Result(name = "updateClient", location = "/modifClient.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "/AffichageClient.action") })
 
 public class ClientAction extends ActionSupport implements ModelDriven<Client> {
@@ -53,6 +54,13 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 		return clientService.update(client);
 	}
 
+	@Action("updateThisClient")
+	public String update() throws Exception {
+		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+		client = clientService.get(id);
+		return "updateClient";
+	}
+	
 	public Client getClient() {
 		return client;
 	}

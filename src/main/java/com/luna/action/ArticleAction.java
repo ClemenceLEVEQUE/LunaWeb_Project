@@ -53,7 +53,7 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		return articleService.update(article);
 	}
 	
-	@Action("update")
+	@Action("updateThisArt")
 	public String update() throws Exception{
 		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		article = articleService.get(id);
