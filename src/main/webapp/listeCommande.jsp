@@ -51,6 +51,7 @@
 						<td width="20%"><s:property value="etat" /></td>
 						<td width="20%"><s:property value="numCom" /></td>
 						<td width="10%"><s:property value="total" /></td>
+						<td><a href='deleteCom?id=<s:property value="idCommande"/>'>Supprimer</a></td>
 					</tr>
 				</s:iterator>
 			</table>

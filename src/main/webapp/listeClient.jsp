@@ -59,6 +59,7 @@
 						<td width="20%"><s:property value="date_creation" /></td>
 						<td width="20%"><s:property value="codeClient" /></td>
 						<td width="20%"><s:property value="remarques" /></td>
+						<td><a href='deleteClient?id=<s:property value="idClient"/>'>Supprimer</a></td>
 					</tr>
 				</s:iterator>
 			</table>

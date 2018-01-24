@@ -2,6 +2,7 @@ package com.luna.action;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
@@ -15,11 +16,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "SUCCESS", location = "/listeArticle.jsp"),
-		@Result(name = "insert", type="redirectAction", location = "/AffichageArticle.action"),
+		@Result(name = "insert", type = "redirectAction", location = "/AffichageArticle.action"),
 		@Result(name = "errorAdd", location = "/ajoutArticle.jsp"),
-		@Result(name = "delete", location = "/listeArticle.jsp"),
-		@Result(name = "errorDelete", location = "/listeArticle.jsp"),
-		@Result(name = "update", location = "/modifArticle.jsp") })
+		@Result(name = "delete", type = "redirectAction", location = "/AffichageArticle.action"),
+		@Result(name = "errorDelete", type = "redirectAction", location = "/AffichageArticle.action"),
+		@Result(name = "update", type = "redirectAction", location = "/AffichageArticle.action") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 
@@ -41,7 +42,8 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	}
 
 	@Action("deleteArt")
-	public String deleteArticle(int id) throws Exception {
+	public String deleteArticle() throws Exception {
+		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		return articleService.delete(id);
 	}
 
