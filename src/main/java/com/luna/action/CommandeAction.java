@@ -12,11 +12,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 
-@Results({ @Result(name = "success", location = "ajoutModifCommande.jsp"),
-	@Result(name= "insert" , location = "listeCommande.jsp"),
-	@Result(name="errorAdd", location = "ajouCommande.jsp"),
-	@Result(name="delete" , location= "listeCommande.jsp"),
-	@Result(name="update", location="modifCommande.jsp")
+@Results({ @Result(name = "success", location = "/listeCommande.jsp"),
+	@Result(name= "insert" , location = "/listeCommande.jsp"),
+	@Result(name="errorAdd", location = "/ajoutCommande.jsp"),
+	@Result(name="delete" , location= "/listeCommande.jsp"),
+	@Result(name="update", location="/modifCommande.jsp")
 })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande>{
 
@@ -24,13 +24,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	private Commande commande;
 	@Autowired
 	private CommandeService commandeService;
-	 private List<Commande> AllCommande;
+	 private List<Commande> models;
 
 	
 @Action("AffichageCommande")
 	@Override
 	public String execute() throws Exception {
-		 AllCommande= commandeService.listCommande();
+	setModels();	 
 		return "success";
 	}
 	
@@ -49,42 +49,28 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String updateCommande() throws Exception{
 		return commandeService.update(commande);
 	}
-	
 
-	
-	
-	
-	
-	
-	public List<Commande> getAllCommande() {
-		return AllCommande;
+	public List<Commande> getModels() {
+		return models;
 	}
 
 
-	public void setAllCommande(List<Commande> allCommande) {
-		AllCommande = allCommande;
+	public void setModels(List<Commande> models) {
+		this.models = models;
 	}
 
+
+	public void setModels() {
+		this.models = commandeService.listCommande();
+	}
 
 	public Commande getCommande() {
 		return commande;
 	}
 
-
-
-
-
 	public void setCommande(Commande commande) {
 		this.commande = commande;
 	}
-
-
-
-
-
-	
-
-
 
 	public CommandeService getCommandeService() {
 		return commandeService;
