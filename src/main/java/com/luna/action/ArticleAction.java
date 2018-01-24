@@ -20,6 +20,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorAdd", location = "/ajoutArticle.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "/AffichageArticle.action"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "/AffichageArticle.action"),
+		@Result(name = "updateArticle", location = "/modifArticle.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "/AffichageArticle.action") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
@@ -50,6 +51,13 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action("updateArt")
 	public String updateArticle() throws Exception {
 		return articleService.update(article);
+	}
+	
+	@Action("update")
+	public String update() throws Exception{
+		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+		article = articleService.get(id);
+		return "updateArticle";
 	}
 
 	public Article getArticle() {

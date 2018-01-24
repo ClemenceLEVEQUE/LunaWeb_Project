@@ -5,32 +5,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Modifier un article</title>
 </head>
 <body>
+	<h2>Fiche article : <s:property value="article.codeArt"/></h2>
 	<s:form action="updateArt">
-		<s:textfield type="text" placeholder="Code article"
-			name="article.codeArt" readonly="true">
-			<s:property value="article.codeArt" />
-		</s:textfield>
 		<s:textfield type="text" placeholder="Designation"
-			name="article.nomArticle">
-			<s:property value="article.nomArticle" />
-		</s:textfield>
+			name="article.nomArticle" label="Designation" />
 		<s:textfield type="text" placeholder="Categorie"
-			name="article.categorie">
-			<s:property value="article.categorie" />
-		</s:textfield>
+			name="article.categorie" label="Categorie" />
 		<s:textfield type="number" placeholder="Prix unit."
-			name="article.prixUnitaire">
-			<s:property value="article.prixUnitaire" />
-		</s:textfield>
-		<s:textfield type="number" placeholder="Stock" name="article.stock">
-			<s:property value="article.stock" />
-		</s:textfield>
-		<s:textfield disabled="true" name="article.id">
-			<s:property value="article.id" />
-		</s:textfield>
+			name="article.prixUnitaire" label="Prix unit." />
+		<s:textfield type="number" placeholder="Stock"
+			name="article.stock" label="Stock" />
+		<s:textfield style="display: none;" name="article.idArticle" />
+		<s:textfield style="display: none;" name="article.codeArt" />
 		<s:submit value="Enregistrer les modifications" />
 	</s:form>
 </body>
