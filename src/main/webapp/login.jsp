@@ -21,7 +21,7 @@
 				<s:textfield type="password" placeholder="Password" name="user.mdp" />
 				<s:submit name="Valider" value="Connexion" />
 			</s:form>
-			<a href="inscription.jsp">Pas de compte? Inscrivez-vous !</a>
+			<a href="sign">Pas de compte? Inscrivez-vous !</a>
 		</div>
 	</div>
 </body>
