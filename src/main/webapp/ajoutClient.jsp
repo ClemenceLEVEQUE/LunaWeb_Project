@@ -30,7 +30,7 @@
 			<tr>
 				<td><s:label>Code client</s:label></td>
 				<td colspan="3"><s:textfield size="50%" placeholder="Code"
-						name="client.codeCli" /></td>
+						name="client.codeClient" /></td>
 			</tr>
 			<tr>
 				<td colspan="4">
@@ -76,7 +76,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="4"><s:textarea cols="100%" rows="5"
+				<td colspan="4"><s:textfield size="100%"
 						placeholder="Remarques" name="client.remarques" /></td>
 			</tr>
 		</table>
