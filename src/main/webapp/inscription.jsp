@@ -9,8 +9,8 @@
 </head>
 <body>
 	<s:form action="inscription">
-		<s:textfield name="login" id="login" value="Login" />
-		<s:password name="mdp" id="mdp" value="Password" />
+		<s:textfield name="login" id="user.login" label="Login" />
+		<s:password name="mdp" id="user.mdp" label="Password" />
 		<s:submit></s:submit>
 	</s:form>
 </body>

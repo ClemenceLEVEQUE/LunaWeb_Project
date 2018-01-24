@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class InscriptionAction extends ActionSupport implements ModelDriven<User> {
 
-	private User user;
+	private User user = new User();
 	@Autowired
 	private UserService userService;
 

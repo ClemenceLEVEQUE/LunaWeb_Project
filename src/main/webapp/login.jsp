@@ -17,8 +17,8 @@
 				<s:label value="LUNA_DISCOUNT">
 					<img src="../resources/com/luna/graphique/actif.png" />
 				</s:label>
-				<s:textfield type="text" placeholder="Login" name="user.login" />
-				<s:textfield type="password" placeholder="Password" name="user.mdp" />
+				<s:textfield type="text" placeholder="Login" name="user.login" value="" />
+				<s:textfield type="password" placeholder="Password" name="user.mdp" value="" />
 				<s:submit name="Valider" value="Connexion" />
 			</s:form>
 			<a href="sign">Pas de compte? Inscrivez-vous !</a>
