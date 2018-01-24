@@ -81,7 +81,7 @@
 			</tr>
 		</table>
 		<br />
-		<s:submit value="Créer l'article" />
+		<s:submit value="Créer le client" />
 	</s:form>
 </body>
 </html>

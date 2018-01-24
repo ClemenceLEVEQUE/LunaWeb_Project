@@ -6,31 +6,78 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Modifier un client</title>
+
+<style type="text/css">
+.title {
+	text-align: left;
+	border: none;
+	border-bottom: 2px dotted black;
+	width: 100%;
+	font-family: Courrier New;
+	font-size: 25;
+	text-shadow: 1px 1px 1px skyblue;
+}
+</style>
 </head>
 <body>
 	<h2>
 		Fiche client :
 		<s:property value="client.codeClient" />
 	</h2>
-	<s:form action="updateClient" method="post">
-		<s:textfield placeholder="Nom" name="client.nom" 
-			abel="Nom" />
-		<s:textfield placeholder="Prenom" name="client.prenom"
-			label="Prenom" />
-		<s:textfield placeholder="Ville" name="client.ville"
-			label="Ville" />
-		<s:textfield placeholder="Rue" name="client.rue"
-			label="Rue" />
-		<s:textfield placeholder="Code postal" name="client.codePostal"
-			label="Code postal" />
-		<s:textfield placeholder="Tel." name="client.tel"
-			label="Tel." />
-		<s:textfield placeholder="Mail" name="client.mail"
-			label="Mail" />
-		<s:textarea placeholder="Remarques" name="client.remarques"
-			label="Remarques" />
-		<s:textfield style="display: none;" name="client.id" />
-		<s:submit value="Créer l'article" />
+	<s:form action="updateClient" theme="simple">
+		<table>
+			<tr>
+				<td colspan="4">
+					<div class="title">&Eacute;tat civil</div> <br />
+				</td>
+			</tr>
+			<tr>
+				<td><s:label>Nom</s:label></td>
+				<td><s:textfield size="50%" placeholder="Nom" name="client.nom" /></td>
+				<td><s:label>Prénom</s:label></td>
+				<td><s:textfield size="50%" placeholder="Prenom"
+						name="client.prenom" /></td>
+			</tr>
+			<tr>
+				<td><s:label>Ville</s:label></td>
+				<td><s:textfield size="50%" placeholder="Ville"
+						name="client.ville" /></td>
+				<td><s:label>Code postal</s:label></td>
+				<td><s:textfield size="50%" placeholder="Code postal"
+						name="client.codePostal" /></td>
+			</tr>
+			<tr>
+				<td><s:label>Rue</s:label></td>
+				<td colspan="3"><s:textfield size="100%" placeholder="Rue"
+						name="client.rue" /></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<div class="title">Coordonn&eacute;es</div> <br />
+				</td>
+			</tr>
+			<tr>
+				<td><s:label>Tel.</s:label></td>
+				<td><s:textfield size="50%" placeholder="Tel."
+						name="client.tel" /></td>
+				<td><s:label>Mail</s:label></td>
+				<td><s:textfield size="50%" placeholder="Mail"
+						name="client.mail" /></td>
+			</tr>
+			<tr>
+				<td colspan="4">
+					<div class="title">Remarques</div> <br />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><s:textfield size="100%"
+						placeholder="Remarques" name="client.remarques" /></td>
+			</tr>
+		</table>
+		<s:textfield style="display: none;" name="client.codeClient" />
+		<s:textfield style="display: none;" name="client.idClient" />
+		<br />
+		<s:submit value="Enregistrer les modifications" />
 	</s:form>
 </body>
 </html>

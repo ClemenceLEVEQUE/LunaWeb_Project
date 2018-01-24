@@ -8,16 +8,35 @@
 <title>Modifier un article</title>
 </head>
 <body>
-	<h2>Fiche article : <s:property value="article.codeArt"/></h2>
-	<s:form action="updateArt">
-		<s:textfield type="text" placeholder="Designation"
-			name="article.nomArticle" label="Designation" />
-		<s:textfield type="text" placeholder="Categorie"
-			name="article.categorie" label="Categorie" />
-		<s:textfield type="number" placeholder="Prix unit."
-			name="article.prixUnitaire" label="Prix unit." />
-		<s:textfield type="number" placeholder="Stock"
-			name="article.stock" label="Stock" />
+	<h2>
+		Fiche article :
+		<s:property value="article.codeArt" />
+	</h2>
+	<s:form action="updateArt" theme="simple">
+		<table>
+			<tr>
+				<td><s:label>D&eacute;signation</s:label></td>
+				<td><s:textfield type="text" placeholder="Designation"
+						name="article.nomArticle" /></td>
+				<td></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td><s:label>Cat&eacute;gorie</s:label></td>
+				<td><s:textfield type="text" placeholder="Categorie"
+						name="article.categorie" /></td>
+			</tr>
+
+			<tr>
+				<td><s:label>Prix unit.</s:label></td>
+				<td><s:textfield type="number" placeholder="Prix unit."
+						name="article.prixUnitaire" /></td>
+				<td><s:label>Stock</s:label></td>
+				<td><s:textfield type="number" placeholder="Stock"
+						name="article.stock" /></td>
+			</tr>
+		</table>
 		<s:textfield style="display: none;" name="article.idArticle" />
 		<s:textfield style="display: none;" name="article.codeArt" />
 		<s:submit value="Enregistrer les modifications" />
