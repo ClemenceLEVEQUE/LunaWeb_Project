@@ -8,10 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form>
+	<s:form action="inscription">
 		<s:textfield name="login" id="login" value="Login" />
 		<s:password name="mdp" id="mdp" value="Password" />
-		<s:submit value=""></s:submit>
+		<s:submit></s:submit>
 	</s:form>
 </body>
 </html>
