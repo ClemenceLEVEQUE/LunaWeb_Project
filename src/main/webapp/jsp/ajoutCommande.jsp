@@ -10,20 +10,36 @@
 <body>
 	<s:form action="insertCom" theme="simple">
 		<s:textfield placeholder="dateLivraison" name="commande.dateLivraison" />
-		<select id="select" onchange="changeClient()">
-			<option value="Choisir un article...">
-				<s:iterator value="getClients()">
-					<option value='<s:property value="idClient"/>'><s:property
-							value="codeClient" /></option>
-				</s:iterator>
+		<select id="selectClient" onchange="changeClient()">
+			<s:iterator value="getClients()">
+				<option value='<s:property value="idClient"/>'>
+					<s:property value="codeClient" />
+				</option>
+			</s:iterator>
 		</select>
-		<s:textfield name="commande.client" id="text" />
+		<s:textfield name="commande.client" id="client" />
 		<s:submit value="Créer l'article" />
-		<script type="text/javascript">
-			function changeClient() {
-				document.getElementById("text").value = document.getElementById("select").value;
-			}
-		</script>
+		<hr />
+		<select id="selectArticle" onchange="changeArticle()">
+			<s:iterator value="getArticles()">
+				<option value='<s:property value="idArticle"/>'>
+					<s:property value="codeArt" />
+				</option>
+			</s:iterator>
+		</select>
+		<s:textfield name="lignecommande.article" id="article" />
 	</s:form>
+
+	<script type="text/javascript">
+		function changeClient() {
+			document.getElementById("client").value = document
+					.getElementById("selectClient").value;
+		}
+		
+		function changeArticle() {
+			document.getElementById("article").value = document
+					.getElementById("selectArticle").value;
+		}
+	</script>
 </body>
 </html>
