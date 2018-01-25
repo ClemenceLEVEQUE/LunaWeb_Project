@@ -1,27 +1,29 @@
 package com.luna.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.luna.entities.Client;
+
 import com.luna.entities.User;
 
 @Repository
+@SuppressWarnings("unchecked")
 public class UserDAOmysql implements UserDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 
 	@Override
 	public boolean insertUser(User user) {
-		User u = (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdP() + "'").getSingleResult();
-		if(u != null) {
-			return false;
-		} else {
+		List<User> us = sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdp() + "'").getResultList();
+		if(us.isEmpty()) {
 			sessionFactory.getCurrentSession().save(user);
 			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -37,10 +39,14 @@ public class UserDAOmysql implements UserDAO {
 
 	@Override
 	public User getUser(User user) {
-		return (User) sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdP() + "'").getSingleResult();
+		List<User> us = sessionFactory.getCurrentSession().createQuery("from User where login = '" + user.getLogin() + "' and mdp = '" + user.getMdp() + "'").getResultList();
+		if(us.isEmpty()) {
+			return null;
+		} else {
+			return us.get(0);
+		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<User> getAllUser() {
 		return (ArrayList<User>) sessionFactory.getCurrentSession().createQuery("from User").getResultList();

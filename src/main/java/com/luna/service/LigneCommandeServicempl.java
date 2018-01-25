@@ -16,18 +16,21 @@ public class LigneCommandeServicempl implements LigneCommandeService {
 	private LigneCommandeDAO ligneCommandeDAO;
 	
 	@Override
-	public void add(LigneCommande ligneCo) {
+	public String add(LigneCommande ligneCo) {
 		ligneCommandeDAO.insertLigneCommande(ligneCo);
+		return "SUCCESS";
 	}
 
 	@Override
-	public void update(LigneCommande ligneCo) {
+	public String update(LigneCommande ligneCo) {
 		ligneCommandeDAO.updateLigneCommande(ligneCo);
+		return "SUCCESS";
 	}
 
 	@Override
-	public void delete(int idLigneCommande) {
+	public String delete(int idLigneCommande) {
 		ligneCommandeDAO.removeLigneCommande(idLigneCommande);
+		return null;
 	}
 
 	@Override

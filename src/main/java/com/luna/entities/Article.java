@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Service;
+
 
 /**La classe Article correspond au Article � disposition des client.
 * Il est caract�ris� par les informations suivantes:
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 * le stock disponible(stock);
 * */
 
-@Service
+
 @Entity
 public class Article implements Serializable {
 	private static final long serialVersionUID = 1L;

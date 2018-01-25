@@ -16,18 +16,22 @@ public class CommandeServiceImpl implements CommandeService {
 	private CommandeDAO commandeDao;
 
 	@Override
-	public boolean add(Commande Comm) {
-		return commandeDao.insertCommande(Comm);
+	public String add(Commande Comm) {
+		if(commandeDao.insertCommande(Comm)) {
+			return "insert";
+		} else return "errorAdd";
 	}
 
 	@Override
-	public void update(Commande Comm) {
+	public String update(Commande Comm) {
 		commandeDao.updateCommande(Comm);
+		return "update";
 	}
 
 	@Override
-	public void delete(int idCommande) {
+	public String delete(int idCommande) {
 		commandeDao.removeCommande(idCommande);
+		return "delete";
 	}
 
 	@Override

@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.stereotype.Service;
 
-@Service
+
+
 @Entity
 
 public class Client implements Serializable{
@@ -131,7 +131,7 @@ public class Client implements Serializable{
 		return remarques;
 	}
 
-	public void setRemarques(String remarque) {
+	public void setRemarques(String remarques) {
 		this.remarques = remarques;
 	}
 

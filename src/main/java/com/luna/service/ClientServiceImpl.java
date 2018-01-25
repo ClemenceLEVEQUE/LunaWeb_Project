@@ -16,18 +16,24 @@ public class ClientServiceImpl implements ClientService {
 	private ClientDAO clientDao;
 
 	@Override
-	public boolean add(Client Cli) {
-		return clientDao.insertClient(Cli);
+	public String add(Client Cli) {
+		if (clientDao.insertClient(Cli)) {
+			return "insert";
+		} else return "errorAdd";
 	}
 
 	@Override
-	public void update(Client Cli) {
+	public String update(Client Cli) {
 		clientDao.updateClient(Cli);
+		return "update";
 	}
 
 	@Override
-	public void delete(int idClient) {
-		clientDao.removeClient(idClient);
+	public String delete(int idClient) {
+		if(clientDao.removeClient(idClient)) {
+			return "delete";
+		}
+		return "errorDelete";
 	}
 
 	@Override

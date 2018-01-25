@@ -16,9 +16,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
-import com.luna.entities.Article;
+
 import com.luna.entities.Client;
-import com.opensymphony.xwork2.interceptor.annotations.Before;
+
 
 // Id 4, 5, 6 et 17
 @RunWith(SpringJUnit4ClassRunner.class)

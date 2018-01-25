@@ -3,13 +3,14 @@ package com.luna.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.springframework.stereotype.Service;
+
 
 /**
  * 
@@ -25,7 +26,7 @@ import org.springframework.stereotype.Service;
  *         Commande total correspond au prix total de la commande
  *
  */
-@Service
+
 @Entity
 
 public class Commande implements Serializable {
@@ -52,7 +53,7 @@ public class Commande implements Serializable {
 	 * On creer un constructeur par default de commande
 	 * 
 	 */
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List <LigneCommande>  lignes;
 	
 	public Commande() {

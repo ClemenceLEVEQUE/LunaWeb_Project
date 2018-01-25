@@ -5,9 +5,9 @@ import java.util.List;
 import com.luna.entities.User;
 
 public interface UserService {
-	boolean add(User user);
-	void update(User user);
-	void delete(int idUser);
+	String add(User user);
+	String update(User user);
+	String delete(int idUser);
 	User get(User user);
 	List<User> listUser();
 }

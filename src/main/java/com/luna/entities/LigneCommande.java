@@ -6,11 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 import javax.persistence.OneToOne;
 
-import org.springframework.stereotype.Service;
-@Service
+
+
 @Entity
 public class LigneCommande implements Serializable{
 

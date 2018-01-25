@@ -16,8 +16,26 @@ public class UserServiceImpl implements UserService {
 	private UserDAO userDao;
 
 	@Override
-	public boolean add(User user) {
-		return userDao.insertUser(user);
+	public String add(User user) {
+		if(userDao.insertUser(user)) {
+			return "SUCCESS";
+		} else return "ERROR";
+	}
+	@Override
+	public String update(User user) {
+		userDao.updateUser(user);
+		return "update";
+	}
+
+	@Override
+	public String delete(int idUser) {
+		userDao.removeUser(idUser);
+		return null;
+	}
+
+	@Override
+	public User get(User user) {
+		return userDao.getUser(user);
 	}
 
 	@Override
@@ -25,18 +43,4 @@ public class UserServiceImpl implements UserService {
 		return userDao.getAllUser();
 	}
 
-	@Override
-	public void update(User user) {
-		userDao.updateUser(user);
-	}
-
-	@Override
-	public void delete(int idUser) {
-		userDao.removeUser(idUser);
-	}
-
-	@Override
-	public User get(User user) {
-		return userDao.getUser(user);
-	}
 }

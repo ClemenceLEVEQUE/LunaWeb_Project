@@ -16,18 +16,23 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDAO articleDao;
 
 	@Override
-	public boolean add(Article Art) {
-		return articleDao.insertArticle(Art);
+	public String add(Article Art) {
+		if(articleDao.insertArticle(Art)) {
+			return "insert";
+		} else return "errorAdd";
 	}
 
 	@Override
-	public void update(Article Art) {
+	public String update(Article Art) {
 		articleDao.updateArticle(Art);
-	}
+		return "update";
 
+	}
 	@Override
-	public void delete(int idArticle) {
-		articleDao.removeArticle(idArticle);
+	public String delete(int idArticle) {
+		if(	articleDao.removeArticle(idArticle)) {
+			return "delete";
+		} else return "errorDelete";
 	}
 
 	@Override
@@ -39,4 +44,4 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> listArticle() {
 		return articleDao.getAllArticle();
 	}
-}
+	}

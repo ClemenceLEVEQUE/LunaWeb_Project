@@ -1,0 +1,16 @@
+.button{
+	border: none;
+	border-radius: 40px;
+	width: 80px;
+	height: 80px;
+}
+
+a{
+	text-decoration: none;
+}
+
+.footer{
+	text-align: center;
+	background-color: #242729;
+	color: #bfbfbf;
+}
