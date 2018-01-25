@@ -8,6 +8,9 @@
 <title>Modifier un article</title>
 </head>
 <body>
+<div id="header">
+			<%@include file="template/header.jsp"%>
+		</div>
 	<h2>
 		Fiche article :
 		<s:property value="article.codeArt" />
@@ -41,5 +44,6 @@
 		<s:textfield style="display: none;" name="article.codeArt" />
 		<s:submit value="Enregistrer les modifications" />
 	</s:form>
+		<%@include file="template/footer.jsp" %>
 </body>
 </html>

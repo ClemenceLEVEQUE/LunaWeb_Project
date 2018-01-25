@@ -20,6 +20,9 @@
 </style>
 </head>
 <body>
+<div id="header">
+			<%@include file="template/header.jsp"%>
+		</div>
 	<s:form action="insertClient" theme="simple">
 		<table>
 			<tr>
@@ -83,5 +86,6 @@
 		<br />
 		<s:submit value="Créer le client" />
 	</s:form>
+	<%@include file="template/footer.jsp" %>
 </body>
 </html>

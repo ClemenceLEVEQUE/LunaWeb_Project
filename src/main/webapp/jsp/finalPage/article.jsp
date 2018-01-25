@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div>
-<a href="${pageContext.request.contextPath}">
-<img src="${pageContext.request.contextPath}/resources/actif.png"/>
-</a>
-</div>
+
 </body>
 </html>

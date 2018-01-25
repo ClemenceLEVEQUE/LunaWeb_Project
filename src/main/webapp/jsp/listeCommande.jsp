@@ -27,7 +27,10 @@
 }
 </style>
 </head>
-<body>
+<body>7
+<div id="header">
+			<%@include file="template/header.jsp"%>
+		</div>
 	<div class="listeCommande">
 		<s:if test="getModels()!=null">
 			<table>
@@ -57,5 +60,6 @@
 			</table>
 		</s:if>
 	</div>
+	<%@include file="template/footer.jsp" %>
 </body>
 </html>
