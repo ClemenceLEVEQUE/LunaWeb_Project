@@ -18,7 +18,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Menu</title>
 </head>
-   <%@include file="WEB-INF/header.jsp" %>
+   <%@include file="/jsp/header.jsp" %>
 <body>
 	<h1>Bienvenue sur Luna Discount</h1>
 	<div class="container">
@@ -48,6 +48,6 @@
 			</s:form>
 		</div>
 	</div>
-	   <%@include file="WEB-INF/footer.jsp" %>
+	   <%@include file="/jsp/footer.jsp" %>
 </body>
 </html>
