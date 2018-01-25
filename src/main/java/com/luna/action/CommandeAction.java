@@ -35,7 +35,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	private ClientService clientService;
 	private List<Commande> models;
 	private List<Article> articles;
-	private List<String> clients;
+	private List<Client> clients;
 
 	@Action("AffichageCommande")
 	@Override
@@ -83,13 +83,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public void setArticles() {
 		this.articles = articleService.listArticle();
 	}
-	
-	public List<String> getClients(){
+
+	public List<Client> getClients() {
 		return clients;
 	}
 
 	public void setClients() {
-		clients = clientService.listCode();
+		this.clients = clientService.listClient();
 	}
 
 	public Commande getCommande() {

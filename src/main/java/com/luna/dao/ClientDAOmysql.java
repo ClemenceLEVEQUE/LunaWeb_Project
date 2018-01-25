@@ -52,5 +52,4 @@ public class ClientDAOmysql implements ClientDAO {
 	public ArrayList<Client> getAllClient() {
 		return (ArrayList<Client>) sessionFactory.getCurrentSession().createQuery("from Client").getResultList();
 	}
-
 }
