@@ -7,24 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-	function changeClient() {
-		document.getElementById("codecli").value = document
-				.getElementById("id").value;
-	}
-</script>
 <body>
 	<s:form action="insertCom" theme="simple">
 		<s:textfield placeholder="dateLivraison" name="commande.dateLivraison" />
-		<select id="client" onchange="changeClient()">
+		<select id="select" onchange="changeClient()">
 			<option value="Choisir un article...">
 				<s:iterator value="getClients()">
 					<option value='<s:property value="idClient"/>'><s:property
 							value="codeClient" /></option>
 				</s:iterator>
 		</select>
-		<s:textfield name="commande.client" id="codecli" />
+		<s:textfield name="commande.client" id="text" />
 		<s:submit value="Créer l'article" />
+		<script type="text/javascript">
+			function changeClient() {
+				document.getElementById("text").value = document.getElementById("select").value;
+			}
+		</script>
 	</s:form>
 </body>
 </html>
