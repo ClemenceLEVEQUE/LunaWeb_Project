@@ -27,7 +27,7 @@
 }
 </style>
 </head>
-<body>7
+<body>
 <div id="header">
 			<%@include file="template/header.jsp"%>
 		</div>
