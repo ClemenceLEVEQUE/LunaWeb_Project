@@ -10,10 +10,10 @@ import com.luna.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results(value = { @Result(name = "SUCCESS", location = "/login.jsp"),
-		@Result(name = "ERROR", location = "/inscription.jsp"),
-		@Result(name = "update", location = "/modifUser.jsp"),
-		@Result(name = "SignUp", location = "/inscription.jsp") })
+@Results(value = { @Result(name = "SUCCESS", location = "/jsp/login.jsp"),
+		@Result(name = "ERROR", location = "/jsp/inscription.jsp"),
+		@Result(name = "update", location = "/jsp/modifUser.jsp"),
+		@Result(name = "SignUp", location = "/jsp/inscription.jsp") })
 
 public class InscriptionAction extends ActionSupport implements ModelDriven<User> {
 

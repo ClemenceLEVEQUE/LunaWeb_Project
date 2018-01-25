@@ -17,10 +17,10 @@ import com.luna.service.CommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results({ @Result(name = "success", location = "/listeCommande.jsp"),
+@Results({ @Result(name = "success", location = "/jsp/listeCommande.jsp"),
 		@Result(name = "insert", type = "redirectAction", location = "/AffichageCommande.action"),
-		@Result(name = "insertCom", location = "/ajoutCommande.jsp"),
-		@Result(name = "errorAdd", location = "/ajoutCommande.jsp"),
+		@Result(name = "insertCom", location = "/jsp/ajoutCommande.jsp"),
+		@Result(name = "errorAdd", location = "/jsp/ajoutCommande.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "/AffichageCommande.action"),
 		@Result(name = "update", type = "redirectAction", location = "/AffichageCommande.action") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
@@ -35,7 +35,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	private ClientService clientService;
 	private List<Commande> models;
 	private List<Article> articles;
-	private List<Client> clients;
+	private List<String> clients;
 
 	@Action("AffichageCommande")
 	@Override
@@ -53,6 +53,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String insert() throws Exception {
 		setArticles();
 		setClients();
+		setModels();
 		return "insertCom";
 	}
 
@@ -82,13 +83,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public void setArticles() {
 		this.articles = articleService.listArticle();
 	}
-
-	public List<Client> getClients() {
+	
+	public List<String> getClients(){
 		return clients;
 	}
 
 	public void setClients() {
-		this.clients = clientService.listClient();
+		clients = clientService.listCode();
 	}
 
 	public Commande getCommande() {
