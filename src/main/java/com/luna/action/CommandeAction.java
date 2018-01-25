@@ -8,13 +8,18 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.luna.entities.Article;
+import com.luna.entities.Client;
 import com.luna.entities.Commande;
+import com.luna.service.ArticleService;
+import com.luna.service.ClientService;
 import com.luna.service.CommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "success", location = "/listeCommande.jsp"),
 		@Result(name = "insert", type = "redirectAction", location = "/AffichageCommande.action"),
+		@Result(name = "insertCom", location = "/ajoutCommande.jsp"),
 		@Result(name = "errorAdd", location = "/ajoutCommande.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "/AffichageCommande.action"),
 		@Result(name = "update", type = "redirectAction", location = "/AffichageCommande.action") })
@@ -24,7 +29,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	private Commande commande;
 	@Autowired
 	private CommandeService commandeService;
+	@Autowired
+	private ArticleService articleService;
+	@Autowired
+	private ClientService clientService;
 	private List<Commande> models;
+	private List<Article> articles;
+	private List<Client> clients;
 
 	@Action("AffichageCommande")
 	@Override
@@ -36,6 +47,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Action("insertCom")
 	public String insertCommande() throws Exception {
 		return commandeService.add(commande);
+	}
+
+	@Action("insertThisCom")
+	public String insert() throws Exception {
+		setArticles();
+		setClients();
+		return "insertCom";
 	}
 
 	@Action("deleteCom")
@@ -53,12 +71,24 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return models;
 	}
 
-	public void setModels(List<Commande> models) {
-		this.models = models;
-	}
-
 	public void setModels() {
 		this.models = commandeService.listCommande();
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles() {
+		this.articles = articleService.listArticle();
+	}
+
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients() {
+		this.clients = clientService.listClient();
 	}
 
 	public Commande getCommande() {
@@ -79,7 +109,6 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	@Override
 	public Commande getModel() {
-
 		return commande;
 	}
 
