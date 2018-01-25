@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div style="display: block; valign: middle; height: 180px;">
-		<a href="${pageContext.request.contextPath}" title="Accueil">
+		<a href="accueil" title="Accueil">
 			<img src="${pageContext.request.contextPath}/images/actif.png"
 				width="160px" height="160px" />
 		</a>
