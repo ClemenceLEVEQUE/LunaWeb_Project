@@ -47,20 +47,6 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	@Action("insertCom")
 	public String insertCommande() throws Exception {
-		LocalDate date = LocalDate.now();
-		
-//					// Recup du num commande et calcul pour obtenir le num suivant
-//					String str = result.getString("MAX(numCommande)");
-//					str = str.replace("COM", "");
-//					int numCom = Integer.parseInt(str) + 1;
-//					str = "00000" + numCom;
-//					str = str.substring(str.length() - 5);
-//					num.setText("COM" + str);
-
-//					// Recup de la date de creation et de livr
-//					LocalDate d = LocalDate.now();
-//					date.setText(d.toString());
-//					d = d.plusDays(5);
 		Client client = clientService.get(commande.getClient().getIdClient());
 		commande.setClient(client);
 		commande.setDateCom("");
