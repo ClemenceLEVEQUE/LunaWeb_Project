@@ -9,21 +9,7 @@
 <title>Footer</title>
 </head>
 <body>
-
-	<div class="footer">
-		<table>
-			<tr class="nom1">
-				<td>Léveque</td>
-				<td>Clémence</td>
-			</tr>
-			<tr class="nom2">
-				<td>El Koulali</td>
-				<td>Karim</td>
-			</tr>
-		</table>
-	</div>
-	<div class="timer">
-
-	</div>
+	<p class="footer"><br/>Karim El Koulali &amp; Cl&eacute;mence L&eacute;v&ecirc;que<br/>
+	Luna Project 2018&copy; - 30/01/2018</p><br/>&nbsp;
 </body>
 </html>
