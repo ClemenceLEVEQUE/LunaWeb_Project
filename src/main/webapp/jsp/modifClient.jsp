@@ -20,6 +20,9 @@
 </style>
 </head>
 <body>
+<div id="header">
+			<%@include file="template/header.jsp"%>
+		</div>
 	<h2>
 		Fiche client :
 		<s:property value="client.codeClient" />
@@ -79,5 +82,6 @@
 		<br />
 		<s:submit value="Enregistrer les modifications" />
 	</s:form>
+	<%@include file="template/footer.jsp" %>
 </body>
 </html>

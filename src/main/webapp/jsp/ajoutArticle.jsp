@@ -8,6 +8,9 @@
 <title>Ajouter un article</title>
 </head>
 <body>
+<div id="header">
+			<%@include file="template/header.jsp"%>
+		</div>
 	<s:form action="insertArt" theme="simple">
 		<table>
 			<tr>
@@ -37,5 +40,6 @@
 		<br />
 		<s:submit value="Créer l'article" />
 	</s:form>
+	   <%@include file="template/footer.jsp" %>
 </body>
 </html>
