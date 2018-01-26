@@ -17,7 +17,7 @@
 				</option>
 			</s:iterator>
 		</select>
-		<s:textfield name="commande.client" id="client" />
+		<s:textfield name="commande.client" id="client" style="display: none;" />
 		<s:submit value="Créer l'article" />
 	</s:form>
 		<hr />
@@ -29,7 +29,7 @@
 				</option>
 			</s:iterator>
 		</select>
-		<s:textfield name="ligneCommande.article" id="article" />
+		<s:textfield name="ligneCommande.article" id="article" style="display: none;" />
 		<s:textfield id="codeArt"/>
 		<s:textfield id="designation"/>
 		<s:textfield id="categ"/>
