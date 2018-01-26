@@ -16,13 +16,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "SUCCESS", location = "/jsp/listeArticle.jsp"),
-		@Result(name = "insert", type = "redirectAction", location = "AffichageArticle.action"),
+		@Result(name = "insert", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "insertArt", location = "/jsp/ajoutArticle.jsp"),
 		@Result(name = "errorAdd", location = "/jsp/ajoutArticle.jsp"),
-		@Result(name = "delete", type = "redirectAction", location = "AffichageArticle.action"),
-		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageArticle.action"),
+		@Result(name = "delete", type = "redirectAction", location = "AffichageArticle"),
+		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "updateArticle", location = "/jsp/modifArticle.jsp"),
-		@Result(name = "update", type = "redirectAction", location = "AffichageArticle.action") })
+		@Result(name = "update", type = "redirectAction", location = "AffichageArticle") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 

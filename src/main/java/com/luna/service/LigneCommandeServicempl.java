@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.luna.dao.LigneCommandeDAO;
+import com.luna.entities.Article;
 import com.luna.entities.LigneCommande;
 
 @Service
@@ -14,6 +15,9 @@ import com.luna.entities.LigneCommande;
 public class LigneCommandeServicempl implements LigneCommandeService {
 	@Autowired
 	private LigneCommandeDAO ligneCommandeDAO;
+	@Autowired
+	private ArticleService articleService;
+	private List<Article> articles;
 	
 	@Override
 	public String add(LigneCommande ligneCo) {
@@ -42,4 +46,14 @@ public class LigneCommandeServicempl implements LigneCommandeService {
 	public List<LigneCommande> listLigneCommande(int idCommande) {
 		return ligneCommandeDAO.getAllLignePourCommande(idCommande);
 	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles() {
+		this.articles = articleService.listArticle();
+	}
+	
+	
 }
