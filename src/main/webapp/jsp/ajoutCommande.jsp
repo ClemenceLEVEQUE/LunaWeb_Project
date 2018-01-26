@@ -19,7 +19,9 @@
 		</select>
 		<s:textfield name="commande.client" id="client" />
 		<s:submit value="Créer l'article" />
+	</s:form>
 		<hr />
+	<s:form action="insertLig" theme="simple">
 		<select id="selectArticle" onchange="changeArticle()">
 			<s:iterator value="getArticles()">
 				<option value='<s:property value="idArticle"/>'>
@@ -29,7 +31,7 @@
 		</select>
 		<s:textfield name="lignecommande.article" id="article" />
 	</s:form>
-
+	
 	<script type="text/javascript">
 		function changeClient() {
 			document.getElementById("client").value = document
