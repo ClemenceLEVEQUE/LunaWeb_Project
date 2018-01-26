@@ -38,8 +38,8 @@
 
 #menu {
 	float: left;
-	width: 140px;
-	background-color: #FF3366;
+	width: 20%;
+	background-color: #3066D1;
 }
 
 #listeClient {
@@ -53,7 +53,14 @@
 		<%@include file="template/header.jsp"%>
 	</div>
 	<div id="main">
-		<div id="menu">Menu</div>
+		<div id="menu">Menu
+		<a href="insertThisClient" title="Ajout de client">
+			<img class="button" src="${pageContext.request.contextPath}/images/ajouter.png"
+				width="80px" height="80px" />
+		</a>
+		
+		
+		</div>
 		<div class="listeClient">
 			<s:if test="getModels()!=null">
 				<table>
@@ -64,7 +71,6 @@
 						<td>Tel</td>
 						<td>Mail</td>
 						<td>Code client</td>
-						<td>Remarques</td>
 					</tr>
 
 					<s:iterator value="getModels()" status="modelsStatus">
@@ -76,10 +82,13 @@
 							<td width="10%"><s:property value="tel" /></td>
 							<td width="20%"><s:property value="mail" /></td>
 							<td width="20%"><s:property value="codeClient" /></td>
-							<td width="20%"><s:property value="remarques" /></td>
-							<td><a href='deleteClient?id=<s:property value="idClient"/>'>Supprimer</a></td>
-							<td><a
-								href='updateThisClient?id=<s:property value="idClient"/>'>Modifier</a></td>
+							<td><a href='deleteClient?id=<s:property value="idClient"/>'title="suppression du client">
+			<img src="${pageContext.request.contextPath}/images/suppr.jpg" />
+		</a></td>
+							
+							<td><a href='updateThisClient?id=<s:property value="idClient"/>' title="modification du client">
+			<img src="${pageContext.request.contextPath}/images/modif.jpg" />
+		</a></td>
 						</tr>
 					</s:iterator>
 				</table>
