@@ -46,6 +46,15 @@
 	margin-left: 245px;
 	background-color: #9966FF;
 }
+
+.search{
+    width: 25%;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+    width: 100%;
+}
 </style>
 </head>
 <body>
@@ -53,13 +62,13 @@
 		<%@include file="template/header.jsp"%>
 	</div>
 	<div id="main">
-		<div id="menu">Menu
+		<div id="menu">
 		<a href="insertThisClient" title="Ajout de client">
 			<img class="button" src="${pageContext.request.contextPath}/images/ajouter.png"
 				width="80px" height="80px" />
 		</a>
 		
-		
+		<input class="search" type="text" name="search" placeholder="Search..">
 		</div>
 		<div class="listeClient">
 			<s:if test="getModels()!=null">

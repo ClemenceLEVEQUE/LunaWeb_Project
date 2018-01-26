@@ -17,6 +17,14 @@
 	font-size: 25;
 	text-shadow: 1px 1px 1px skyblue;
 }
+.search{
+    width: 30%;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+    width: 100%;
+}
 </style>
 </head>
 <body>
