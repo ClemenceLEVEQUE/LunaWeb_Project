@@ -23,7 +23,6 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	private LigneCommande ligneCommande;
 	@Autowired
 	private LigneCommandeService ligneCommandeService;
-	private List<Article> articles;
 
 	@Action("insertLig")
 	public String insertLig() throws Exception {
@@ -63,14 +62,4 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	public void setLigneCommandeService(LigneCommandeService ligneCommandeService) {
 		this.ligneCommandeService = ligneCommandeService;
 	}
-
-	public List<Article> getArticles() {
-		return articles;
-	}
-
-	public void setArticles(List<Article> articles) {
-		this.articles = articles;
-	}
-
-	
 }

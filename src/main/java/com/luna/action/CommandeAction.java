@@ -8,9 +8,11 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.luna.entities.Article;
 import com.luna.entities.Client;
 import com.luna.entities.Commande;
 import com.luna.entities.LigneCommande;
+import com.luna.service.ArticleService;
 import com.luna.service.ClientService;
 import com.luna.service.CommandeService;
 import com.luna.service.LigneCommandeService;
@@ -33,10 +35,13 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Autowired
 	private ClientService clientService;
 	@Autowired
+	private ArticleService articleService;
+	@Autowired
 	private LigneCommandeService ligneCommandeService;
 	private List<Commande> models;
 	private List<Client> clients;
 	private List<LigneCommande> lignes;
+	private List<Article> articles;
 
 	@Action("AffichageCommande")
 	@Override
@@ -57,6 +62,8 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String insert() throws Exception {
 		setClients();
 		setModels();
+		setLignes();
+		setArticles();
 		return "insertCom";
 	}
 
@@ -76,6 +83,7 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		setClients();
 		setModels();
 		setLignes();
+		setArticles();
 		return "updateCom";
 	}
 
@@ -100,7 +108,17 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	}
 
 	public void setLignes() {
-		this.lignes = ligneCommandeService.listLigneCommande(commande.getIdCommande());
+		if(commande != null) {
+			this.lignes = ligneCommandeService.listLigneCommande(commande.getIdCommande());
+		}
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles() {
+		this.articles = articleService.listArticle();
 	}
 
 	public Commande getCommande() {

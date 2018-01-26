@@ -30,6 +30,11 @@
 			</s:iterator>
 		</select>
 		<s:textfield name="ligneCommande.article" id="article" />
+		<s:textfield id="codeArt"/>
+		<s:textfield id="designation"/>
+		<s:textfield id="categ"/>
+		<s:textfield id="prix unit"/>
+		<s:textfield id="qte" name="ligneCommande.quantite"/>
 	</s:form>
 	
 	<script type="text/javascript">
