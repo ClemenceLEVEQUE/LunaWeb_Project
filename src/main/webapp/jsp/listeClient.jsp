@@ -33,13 +33,17 @@
 
 #main {
 	max-with: 960px;
-	margin: auto;
+	margin: auto;;
 }
 
 #menu {
 	float: left;
+	float: inline-end;
 	width: 20%;
 	background-color: #3066D1;
+	margin: 0 0 50px 10px;
+	display:block;
+	text-align:center;
 }
 
 #listeClient {
@@ -55,22 +59,34 @@
 .search:focus {
     width: 100%;
 }
+h1 {
+    margin: 0 0 50px 10px;
+}
+
+h2 {
+    margin: 20px 0 0 10px;
+}
+
 </style>
 </head>
 <body>
-	<div id="header">
+	 <table width="100%"> <tr> <td colspan="2"> <div id="header">
 		<%@include file="template/header.jsp"%>
-	</div>
-	<div id="main">
+	</div> </td></tr>
+	
+	<tr> <td> <div id="main">
+	<h1></h1>
 		<div id="menu">
+			<h1>
 		<a href="insertThisClient" title="Ajout de client">
 			<img class="button" src="${pageContext.request.contextPath}/images/ajouter.png"
 				width="80px" height="80px" />
-		</a>
-		
+		</a></h1>
+			<h2>
 		<input class="search" type="text" name="search" placeholder="Search..">
+		</h2>
 		</div>
-		<div class="listeClient">
+		<div id="listeClient">
 			<s:if test="getModels()!=null">
 				<table>
 					<tr class="entete">
@@ -104,9 +120,12 @@
 			</s:if>
 
 		</div>
-	</div>
-	<div id="footer">
+		</div>
+	
+	 </td> </tr>
+	<tr> <td colspan="2"> <div id="footer">
 		<%@include file="template/footer.jsp"%>
-	</div>
+	</div> </td> </tr>
+	</table>
 </body>
 </html>

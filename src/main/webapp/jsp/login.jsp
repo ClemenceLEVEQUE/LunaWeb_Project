@@ -6,7 +6,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -15,7 +17,7 @@
 		<div class="format">
 			<s:form action="login">
 				<s:label value="LUNA_DISCOUNT">
-					<img src="../resources/com/luna/graphique/actif.png" />
+					<img src="${pageContext.request.contextPath}/images/actif.png" />
 				</s:label>
 				<s:textfield type="text" placeholder="Login" name="user.login" value="" />
 				<s:textfield type="password" placeholder="Password" name="user.mdp" value="" />
@@ -24,5 +26,6 @@
 			<a href="sign">Pas de compte? Inscrivez-vous !</a>
 		</div>
 	</div>
+	<%@include file="template/footer.jsp"%>
 </body>
 </html>

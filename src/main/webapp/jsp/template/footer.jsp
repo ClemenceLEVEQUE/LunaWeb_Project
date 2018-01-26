@@ -9,7 +9,7 @@
 <title>Footer</title>
 </head>
 <body>
-	<p class="footer"><br/>Karim El Koulali &amp; Cl&eacute;mence L&eacute;v&ecirc;que<br/>
-	Luna Project 2018&copy; - 30/01/2018<br/>&nbsp;</p>
+	<div >  <p class="footer"><br/>Karim El Koulali &amp; Cl&eacute;mence L&eacute;v&ecirc;que<br/>
+	Luna Project 2018&copy; - 30/01/2018<br/>&nbsp;</p> </div>
 </body>
 </html>
