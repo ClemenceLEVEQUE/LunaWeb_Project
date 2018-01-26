@@ -1,11 +1,14 @@
 package com.luna.action;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.luna.entities.Article;
 import com.luna.entities.LigneCommande;
 import com.luna.service.LigneCommandeService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,21 +23,22 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	private LigneCommande ligneCommande;
 	@Autowired
 	private LigneCommandeService ligneCommandeService;
+	private List<Article> articles;
 
 	@Action("insertLig")
-	public String insertLig() {
+	public String insertLig() throws Exception {
 		return ligneCommandeService.add(ligneCommande);
 	}
 
 	@Action("modifLig")
-	public String modifLig() {
+	public String modifLig() throws Exception {
 		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		ligneCommande = ligneCommandeService.get(id);
 		return ligneCommandeService.update(ligneCommande);
 	}
 
 	@Action("supprLig")
-	public String supprLig() {
+	public String supprLig() throws Exception {
 		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		return ligneCommandeService.delete(id);
 	}
@@ -44,4 +48,29 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 		return ligneCommande;
 	}
 
+	public LigneCommande getLigneCommande() {
+		return ligneCommande;
+	}
+
+	public void setLigneCommande(LigneCommande ligneCommande) {
+		this.ligneCommande = ligneCommande;
+	}
+
+	public LigneCommandeService getLigneCommandeService() {
+		return ligneCommandeService;
+	}
+
+	public void setLigneCommandeService(LigneCommandeService ligneCommandeService) {
+		this.ligneCommandeService = ligneCommandeService;
+	}
+
+	public List<Article> getArticles() {
+		return articles;
+	}
+
+	public void setArticles(List<Article> articles) {
+		this.articles = articles;
+	}
+
+	
 }

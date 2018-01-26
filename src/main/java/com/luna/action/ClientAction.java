@@ -14,13 +14,13 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "success", location = "/jsp/listeClient.jsp"),
-		@Result(name = "insert", type = "redirectAction", location = "AffichageClient.action"),
+		@Result(name = "insert", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "insertClient", location = "/jsp/ajoutClient.jsp"),
 		@Result(name = "errorAdd", location = "/jsp/ajoutClient.jsp"),
-		@Result(name = "delete", type = "redirectAction", location = "AffichageClient.action"),
-		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageClient.action"),
+		@Result(name = "delete", type = "redirectAction", location = "AffichageClient"),
+		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "updateClient", location = "/jsp/modifClient.jsp"),
-		@Result(name = "update", type = "redirectAction", location = "AffichageClient.action") })
+		@Result(name = "update", type = "redirectAction", location = "AffichageClient") })
 
 public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 

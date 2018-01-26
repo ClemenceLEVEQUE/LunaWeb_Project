@@ -29,7 +29,7 @@
 				</option>
 			</s:iterator>
 		</select>
-		<s:textfield name="lignecommande.article" id="article" />
+		<s:textfield name="ligneCommande.article" id="article" />
 	</s:form>
 	
 	<script type="text/javascript">

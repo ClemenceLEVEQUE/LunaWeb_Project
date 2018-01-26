@@ -8,21 +8,22 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.Results;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.luna.entities.Article;
 import com.luna.entities.Client;
 import com.luna.entities.Commande;
-import com.luna.service.ArticleService;
+import com.luna.entities.LigneCommande;
 import com.luna.service.ClientService;
 import com.luna.service.CommandeService;
+import com.luna.service.LigneCommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results({ @Result(name = "success", location = "/jsp/listeCommande.jsp"),
-		@Result(name = "insert", type = "redirectAction", location = "/AffichageCommande.action"),
+		@Result(name = "insert", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "insertCom", location = "/jsp/ajoutCommande.jsp"),
 		@Result(name = "errorAdd", location = "/jsp/ajoutCommande.jsp"),
-		@Result(name = "delete", type = "redirectAction", location = "/AffichageCommande.action"),
-		@Result(name = "update", type = "redirectAction", location = "/AffichageCommande.action") })
+		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
+		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
+		@Result(name = "updateCom", location = "/jsp/modifCommande.jsp") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
 
 	private static final long serialVersionUID = 1L;
@@ -30,12 +31,12 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Autowired
 	private CommandeService commandeService;
 	@Autowired
-	private ArticleService articleService;
-	@Autowired
 	private ClientService clientService;
+	@Autowired
+	private LigneCommandeService ligneCommandeService;
 	private List<Commande> models;
-	private List<Article> articles;
 	private List<Client> clients;
+	private List<LigneCommande> lignes;
 
 	@Action("AffichageCommande")
 	@Override
@@ -54,7 +55,6 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 
 	@Action("insertThisCom")
 	public String insert() throws Exception {
-		setArticles();
 		setClients();
 		setModels();
 		return "insertCom";
@@ -70,6 +70,14 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public String updateCommande() throws Exception {
 		return commandeService.update(commande);
 	}
+	
+	@Action("updateThisCom")
+	public String update() throws Exception{
+		setClients();
+		setModels();
+		setLignes();
+		return "updateCom";
+	}
 
 	public List<Commande> getModels() {
 		return models;
@@ -79,20 +87,20 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		this.models = commandeService.listCommande();
 	}
 
-	public List<Article> getArticles() {
-		return articles;
-	}
-
-	public void setArticles() {
-		this.articles = articleService.listArticle();
-	}
-
 	public List<Client> getClients() {
 		return clients;
 	}
 
 	public void setClients() {
 		this.clients = clientService.listClient();
+	}
+
+	public List<LigneCommande> getLignes() {
+		return lignes;
+	}
+
+	public void setLignes() {
+		this.lignes = ligneCommandeService.listLigneCommande(commande.getIdCommande());
 	}
 
 	public Commande getCommande() {
