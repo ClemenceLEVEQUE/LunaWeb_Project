@@ -8,45 +8,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<s:form action="insertCom" theme="simple">
-		<s:textfield placeholder="dateLivraison" name="commande.dateLivraison" />
-		<select id="selectClient" onchange="changeClient()">
-			<s:iterator value="getClients()">
-				<option value='<s:property value="idClient"/>'>
-					<s:property value="codeClient" />
-				</option>
-			</s:iterator>
-		</select>
-		<s:textfield name="commande.client" id="client" style="display: none;" />
-		<s:submit value="Créer l'article" />
-	</s:form>
-		<hr />
-	<s:form action="insertLig" theme="simple">
-		<select id="selectArticle" onchange="changeArticle()">
-			<s:iterator value="getArticles()">
-				<option value='<s:property value="idArticle"/>'>
-					<s:property value="codeArt" />
-				</option>
-			</s:iterator>
-		</select>
-		<s:textfield name="ligneCommande.article" id="article" style="display: none;" />
-		<s:textfield id="codeArt"/>
-		<s:textfield id="designation"/>
-		<s:textfield id="categ"/>
-		<s:textfield id="prix unit"/>
-		<s:textfield id="qte" name="ligneCommande.quantite"/>
-	</s:form>
-	
+	<div id="header">
+		<%@include file="template/header.jsp"%>
+	</div>
+
+	<label>Client</label>
+	<select id="selectClient" onchange="changeClient()">
+		<s:iterator value="getClients()">
+			<option value='<s:property value="idClient"/>'>
+				<s:property value="codeClient" />
+			</option>
+		</s:iterator>
+	</select>
+	<input type="text" id="client"
+		value='<s:if test="getClients().size == 1"><s:iterator value="getClients()"><s:property value="idClient"/></s:iterator></s:if>'>
+	<a id="action" onclick="modifLien()" href="http://"><button>Cr&eacute;er
+			la commande</button></a>
+
 	<script type="text/javascript">
 		function changeClient() {
 			document.getElementById("client").value = document
 					.getElementById("selectClient").value;
 		}
-		
-		function changeArticle() {
-			document.getElementById("article").value = document
-					.getElementById("selectArticle").value;
+
+		function modifLien() {
+			document.getElementById("action").href = "insertCom?cli="
+					+ document.getElementById("client").value;
 		}
 	</script>
+
+	<%@include file="template/footer.jsp"%>
 </body>
 </html>

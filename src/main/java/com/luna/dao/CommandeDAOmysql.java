@@ -57,11 +57,14 @@ public class CommandeDAOmysql implements CommandeDAO {
 	public String getNewNum() {
 		List<String> str = sessionFactory.getCurrentSession().createQuery("select max(numCom) from Commande").getResultList();
 		String num;
-		if(str.isEmpty()) {
+		List<String> test = new ArrayList<String>();
+		test.add(null);
+		if(str.get(0) == test.get(0)) {
 			num = "COM00001";
 		} else {
 			num = str.get(0);
-			num.replace("COM", "");
+			num = num.substring(3);
+			System.out.println(num);
 			int i = Integer.parseInt(num);
 			i += 1;
 			num = "00000" + i;
