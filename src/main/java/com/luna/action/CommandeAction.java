@@ -23,7 +23,8 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorAdd", location = "/jsp/ajoutCommande.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
-		@Result(name = "updateCom", location = "/jsp/modifCommande.jsp") })
+		@Result(name = "updateCom", location = "/jsp/modifCommande.jsp"),
+		@Result(name = "affiche", location = "/jsp/ficheCommande.jsp") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
 
 	private static final long serialVersionUID = 1L;
@@ -83,6 +84,14 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return "updateCom";
 	}
 
+	@Action("ficheCommande")
+	public String affiche() throws Exception{
+		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+		commande = commandeService.get(id);
+		setLignes(id);
+		return "affiche";
+	}
+	
 	public List<Commande> getModels() {
 		return models;
 	}
@@ -103,9 +112,9 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		return lignes;
 	}
 
-	public void setLignes() {
+	public void setLignes(int id) {
 		if(commande != null) {
-			this.lignes = ligneCommandeService.listLigneCommande(commande.getIdCommande());
+			this.lignes = ligneCommandeService.listLigneCommande(id);
 		}
 	}
 

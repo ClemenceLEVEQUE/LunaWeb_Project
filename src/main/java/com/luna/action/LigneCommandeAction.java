@@ -75,7 +75,7 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 		return "updateLig";
 	}
 
-	@Action("supprLig")
+	@Action("deleteLig")
 	public String supprLig() throws Exception {
 		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		return ligneCommandeService.delete(id);
