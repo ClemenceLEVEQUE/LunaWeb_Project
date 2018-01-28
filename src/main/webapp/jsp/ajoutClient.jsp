@@ -25,12 +25,132 @@
 .search:focus {
     width: 100%;
 }
+#main {
+
+	max-with: 960px;
+	margin: auto;
+}
+
+#menu {
+position: fixed;
+	float: left;
+	float: inline-end;
+	width: 20%;
+	background-color: #3066D1;
+	margin: 0 0 0 0;
+	display: block;
+	text-align: center;
+}
+
+#ajoutClient {
+	margin-left: 22%;
+	background-color: #0061E5;
+}
+
+.search {
+	width: 25%;
+}
+
+/* When the input field gets focus, change its width to 100% */
+.search:focus {
+	width: 80%;
+}
+
+h1 {
+	margin: 0 0 50px 10px;
+}
+
+h2 {
+	margin: 20px 0 40% 10px;
+}
+
+
 </style>
 </head>
 <body>
-<div id="header">
-			<%@include file="template/header.jsp"%>
-		</div>
+<table width="100%">
+		<tr>
+			<td colspan="2">
+				<div id="header">
+					<%@include file="template/header.jsp"%>
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<div id="main">
+					<h1></h1>
+					<div id="menu">
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p>Ajouter un client</p>
+						<p></p>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<h1>
+							<a href="AffichageClient" title="liste des clients"> <img
+								src="${pageContext.request.contextPath}/images/liste.png"
+								width="80px" height="80px" />
+							</a>
+						</h1>
+							<p></p>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p>Rechercher un article</p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<h2>
+							<input class="search" type="text" name="search"
+								placeholder="Search..">
+						</h2>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+
+						<p></p>
+						<p></p>
+						<p></p>
+						<p></p>
+					</div>
+					<div id="ajoutClient">
 	<s:form action="insertClient" theme="simple">
 		<table>
 			<tr>
@@ -94,6 +214,13 @@
 		<br />
 		<s:submit value="Créer le client" />
 	</s:form>
-	<%@include file="template/footer.jsp" %>
+	</div>
+
+				<div id="footer">
+					<%@include file="template/footer.jsp"%>
+				</div>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

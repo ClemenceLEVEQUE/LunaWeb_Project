@@ -5,13 +5,6 @@
 <html>
 <head>
 <style type="text/css">
-div.fixed {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	width: 100%;
-	margin: 50% 50% 0% 0;
-}
 </style>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
@@ -19,15 +12,14 @@ div.fixed {
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="menuHaut"
-		style="display: block; valign: middle; height: 150px;">
+	<div style="display: block; valign: middle; height: 150px;">
 		<a href="accueil" title="Accueil"> <img
 			src="${pageContext.request.contextPath}/images/actif.png"
-			width="160px" height="160px"/>
-		</a> <a href="AffichageArticle" title="Liste des produits"> <img
+			width="160px" height="160px"/> </a>
+		 <a href="AffichageArticle" title="Liste des produits"> <img
 			class="button"
 			src="${pageContext.request.contextPath}/images/produit.png"
-			width="80px" height="90px"  hspace="10px"/>
+			width="80px" height="90px"  hspace="10px" />
 		</a> <a href="AffichageClient" title="Liste des clients"> <img
 			class="button"
 			src="${pageContext.request.contextPath}/images/client.png"
@@ -40,7 +32,7 @@ div.fixed {
 			class="button"
 			src="${pageContext.request.contextPath}/images/logout.png"
 			width="80px" height="90px" hspace="60px" />
-		</a>
-	</div>
+		</a> 
+		</div>
 </body>
 </html>
