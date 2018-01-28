@@ -22,7 +22,8 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "delete", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "updateArticle", location = "/jsp/modifArticle.jsp"),
-		@Result(name = "update", type = "redirectAction", location = "AffichageArticle") })
+		@Result(name = "update", type = "redirectAction", location = "AffichageArticle"),
+		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
 
@@ -34,36 +35,66 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	@Action("AffichageArticle")
 	@Override
 	public String execute() throws Exception {
-		setModels();
-		return "SUCCESS";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			setModels();
+			return "SUCCESS";
+		}
 	}
 
 	@Action("insertArt")
 	public String insertArticle() throws Exception {
-		return articleService.add(article);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			return articleService.add(article);
+		}
 	}
 
 	@Action("insertThisArt")
 	public String insert() throws Exception {
-		return "insertArt";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			return "insertArt";
+		}
 	}
 
 	@Action("deleteArt")
 	public String deleteArticle() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		return articleService.delete(id);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			return articleService.delete(id);
+		}
 	}
 
 	@Action("updateArt")
 	public String updateArticle() throws Exception {
-		return articleService.update(article);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			return articleService.update(article);
+		}
 	}
 
 	@Action("updateThisArt")
 	public String update() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		article = articleService.get(id);
-		return "updateArticle";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			article = articleService.get(id);
+			return "updateArticle";
+		}
 	}
 
 	public Article getArticle() {
@@ -94,5 +125,4 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 	public Article getModel() {
 		return article;
 	}
-
 }

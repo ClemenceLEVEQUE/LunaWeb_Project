@@ -20,7 +20,8 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "delete", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "updateClient", location = "/jsp/modifClient.jsp"),
-		@Result(name = "update", type = "redirectAction", location = "AffichageClient") })
+		@Result(name = "update", type = "redirectAction", location = "AffichageClient"),
+		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 
 public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 
@@ -35,36 +36,66 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Action("AffichageClient")
 	@Override
 	public String execute() throws Exception {
-		setModels();
-		return "success";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			setModels();
+			return "success";
+		}
 	}
 
 	@Action("insertClient")
 	public String insertClient() throws Exception {
-		return clientService.add(client);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if (user == null) {
+			return "notlogged";
+		} else {
+			return clientService.add(client);
+		}
 	}
 
 	@Action("insertThisClient")
 	public String insert() throws Exception {
-		return "insertClient";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			return "insertClient";
+		}
 	}
 
 	@Action("deleteClient")
 	public String delete() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		return clientService.delete(id);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			return clientService.delete(id);
+		}
 	}
 
 	@Action("updateClient")
 	public String updateClient() throws Exception {
-		return clientService.update(client);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			return clientService.update(client);
+		}
 	}
 
 	@Action("updateThisClient")
 	public String update() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		client = clientService.get(id);
-		return "updateClient";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			client = clientService.get(id);
+			return "updateClient";
+		}
 	}
 
 	public Client getClient() {

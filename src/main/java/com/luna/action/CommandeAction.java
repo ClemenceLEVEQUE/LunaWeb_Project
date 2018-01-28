@@ -24,7 +24,8 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "updateCom", location = "/jsp/modifCommande.jsp"),
-		@Result(name = "affiche", location = "/jsp/ficheCommande.jsp") })
+		@Result(name = "affiche", location = "/jsp/ficheCommande.jsp"),
+		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
 
 	private static final long serialVersionUID = 1L;
@@ -42,54 +43,89 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	@Action("AffichageCommande")
 	@Override
 	public String execute() throws Exception {
-		setModels();
-		return "success";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			setModels();
+			return "success";
+		}
 	}
 
 	@Action("insertCom")
 	public String insertCommande() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("cli"));
-		Client client = clientService.get(id);
-		commande.setClient(client);
-		return commandeService.add(commande);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("cli"));
+			Client client = clientService.get(id);
+			commande.setClient(client);
+			return commandeService.add(commande);
+		}
 	}
 
 	@Action("insertThisCom")
 	public String insert() throws Exception {
-		setClients();
-		return "insertCom";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			setClients();
+			return "insertCom";
+		}
 	}
 
 	@Action("deleteCom")
 	public String deleteCommande() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		return commandeService.delete(id);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			return commandeService.delete(id);	
+		}
 	}
 
 	@Action("updateCom")
 	public String updateCommande() throws Exception {
-		int cli = Integer.parseInt(ServletActionContext.getRequest().getParameter("cli"));
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		commande = commandeService.get(id);
-		Client client = clientService.get(cli);
-		commande.setClient(client);
-		return commandeService.update(commande);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int cli = Integer.parseInt(ServletActionContext.getRequest().getParameter("cli"));
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			commande = commandeService.get(id);
+			Client client = clientService.get(cli);
+			commande.setClient(client);
+			return commandeService.update(commande);
+		}
 	}
 	
 	@Action("updateThisCom")
 	public String update() throws Exception{
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		commande = commandeService.get(id);
-		setClients();
-		return "updateCom";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			commande = commandeService.get(id);
+			setClients();
+			return "updateCom";
+		}
 	}
 
 	@Action("ficheCommande")
 	public String affiche() throws Exception{
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		commande = commandeService.get(id);
-		setLignes(id);
-		return "affiche";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			commande = commandeService.get(id);
+			setLignes(id);
+			return "affiche";
+		}
 	}
 	
 	public List<Commande> getModels() {
@@ -130,5 +166,4 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 	public Commande getModel() {
 		return commande;
 	}
-
 }

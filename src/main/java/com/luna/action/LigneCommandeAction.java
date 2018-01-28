@@ -21,7 +21,8 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "update", type = "redirectAction", location = "ficheCom"),
 		@Result(name = "delete", type = "redirectAction", location = "ficheCom"),
 		@Result(name = "insertLig", location = "/jsp/ajoutLigne.jsp"),
-		@Result(name = "updateLig", location = "/jsp/modifLigne.jsp") })
+		@Result(name = "updateLig", location = "/jsp/modifLigne.jsp"),
+		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class LigneCommandeAction extends ActionSupport implements ModelDriven<LigneCommande> {
 
 	private static final long serialVersionUID = 1L;
@@ -37,48 +38,73 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 
 	@Action("insertLig")
 	public String insertLig() throws Exception {
-		int com = Integer.parseInt(ServletActionContext.getRequest().getParameter("Com"));
-		int art = Integer.parseInt(ServletActionContext.getRequest().getParameter("Art"));
-		int qte = Integer.parseInt(ServletActionContext.getRequest().getParameter("Qte"));
-		ligneCommande.setIdCommande(commandeService.get(com));
-		ligneCommande.setIdArticle(articleService.get(art));
-		ligneCommande.setQuantite(qte);
-		return ligneCommandeService.add(ligneCommande);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int com = Integer.parseInt(ServletActionContext.getRequest().getParameter("Com"));
+			int art = Integer.parseInt(ServletActionContext.getRequest().getParameter("Art"));
+			int qte = Integer.parseInt(ServletActionContext.getRequest().getParameter("Qte"));
+			ligneCommande.setIdCommande(commandeService.get(com));
+			ligneCommande.setIdArticle(articleService.get(art));
+			ligneCommande.setQuantite(qte);
+			return ligneCommandeService.add(ligneCommande);
+		}
 	}
 
 	@Action("insertThisLig")
 	public String insert() throws Exception {
-		setArticles();
-		setCommandes();
-		return "insertLig";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			setArticles();
+			setCommandes();
+			return "insertLig";
+		}
 	}
 
 	@Action("updateLig")
 	public String modifLig() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		int com = Integer.parseInt(ServletActionContext.getRequest().getParameter("Com"));
-		int art = Integer.parseInt(ServletActionContext.getRequest().getParameter("Art"));
-		int qte = Integer.parseInt(ServletActionContext.getRequest().getParameter("Qte"));
-		ligneCommande.setIdCommande(commandeService.get(com));
-		ligneCommande.setIdArticle(articleService.get(art));
-		ligneCommande.setQuantite(qte);
-		ligneCommande.setIdLigne(id);
-		return ligneCommandeService.update(ligneCommande);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			int com = Integer.parseInt(ServletActionContext.getRequest().getParameter("Com"));
+			int art = Integer.parseInt(ServletActionContext.getRequest().getParameter("Art"));
+			int qte = Integer.parseInt(ServletActionContext.getRequest().getParameter("Qte"));
+			ligneCommande.setIdCommande(commandeService.get(com));
+			ligneCommande.setIdArticle(articleService.get(art));
+			ligneCommande.setQuantite(qte);
+			ligneCommande.setIdLigne(id);
+			return ligneCommandeService.update(ligneCommande);
+		}
 	}
 
 	@Action("updateThisLig")
 	public String update() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		ligneCommande = ligneCommandeService.get(id);
-		setArticles();
-		setCommandes();
-		return "updateLig";
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			ligneCommande = ligneCommandeService.get(id);
+			setArticles();
+			setCommandes();
+			return "updateLig";
+		}
 	}
 
 	@Action("deleteLig")
 	public String supprLig() throws Exception {
-		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
-		return ligneCommandeService.delete(id);
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+			return ligneCommandeService.delete(id);
+		}
 	}
 
 	@Override
