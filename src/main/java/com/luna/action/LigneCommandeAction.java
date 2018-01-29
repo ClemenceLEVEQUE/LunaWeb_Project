@@ -20,8 +20,8 @@ import com.opensymphony.xwork2.ModelDriven;
 @Results(value = { @Result(name = "insert", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
-		@Result(name = "insertLig", location = "/jsp/ajoutLigne.jsp"),
-		@Result(name = "updateLig", location = "/jsp/modifLigne.jsp"),
+		@Result(name = "insertLig", location = "/WEB-INF/jsp/ajoutLigne.jsp"),
+		@Result(name = "updateLig", location = "/WEB-INF/jsp/modifLigne.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class LigneCommandeAction extends ActionSupport implements ModelDriven<LigneCommande> {
 

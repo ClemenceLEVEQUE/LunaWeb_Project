@@ -13,13 +13,13 @@ import com.luna.service.ClientService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results({ @Result(name = "success", location = "/jsp/listeClient.jsp"),
+@Results({ @Result(name = "success", location = "/WEB-INF/jsp/listeClient.jsp"),
 		@Result(name = "insert", type = "redirectAction", location = "AffichageClient"),
-		@Result(name = "insertClient", location = "/jsp/ajoutClient.jsp"),
-		@Result(name = "errorAdd", location = "/jsp/ajoutClient.jsp"),
+		@Result(name = "insertClient", location = "/WEB-INF/jsp/ajoutClient.jsp"),
+		@Result(name = "errorAdd", location = "/WEB-INF/jsp/ajoutClient.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageClient"),
-		@Result(name = "updateClient", location = "/jsp/modifClient.jsp"),
+		@Result(name = "updateClient", location = "/WEB-INF/jsp/modifClient.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 

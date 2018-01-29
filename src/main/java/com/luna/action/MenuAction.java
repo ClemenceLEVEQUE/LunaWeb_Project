@@ -8,7 +8,7 @@ import org.apache.struts2.convention.annotation.Results;
 import com.opensymphony.xwork2.ActionSupport;
 
 @Action("accueil")
-@Results(value = { @Result(name = "success", location = "/jsp/menu.jsp"),
+@Results(value = { @Result(name = "success", location = "/WEB-INF/jsp/menu.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class MenuAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;

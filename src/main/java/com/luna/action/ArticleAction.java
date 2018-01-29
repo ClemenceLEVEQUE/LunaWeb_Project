@@ -15,13 +15,13 @@ import com.luna.service.ArticleService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results({ @Result(name = "SUCCESS", location = "/jsp/listeArticle.jsp"),
+@Results({ @Result(name = "SUCCESS", location = "/WEB-INF/jsp/listeArticle.jsp"),
 		@Result(name = "insert", type = "redirectAction", location = "AffichageArticle"),
-		@Result(name = "insertArt", location = "/jsp/ajoutArticle.jsp"),
-		@Result(name = "errorAdd", location = "/jsp/ajoutArticle.jsp"),
+		@Result(name = "insertArt", location = "/WEB-INF/jsp/ajoutArticle.jsp"),
+		@Result(name = "errorAdd", location = "/WEB-INF/jsp/ajoutArticle.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageArticle"),
-		@Result(name = "updateArticle", location = "/jsp/modifArticle.jsp"),
+		@Result(name = "updateArticle", location = "/WEB-INF/jsp/modifArticle.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {

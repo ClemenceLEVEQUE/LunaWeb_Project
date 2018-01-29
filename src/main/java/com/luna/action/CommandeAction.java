@@ -17,14 +17,14 @@ import com.luna.service.LigneCommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results({ @Result(name = "success", location = "/jsp/listeCommande.jsp"),
+@Results({ @Result(name = "success", location = "/WEB-INF/jsp/listeCommande.jsp"),
 		@Result(name = "insert", type = "redirectAction", location = "AffichageCommande"),
-		@Result(name = "insertCom", location = "/jsp/ajoutCommande.jsp"),
-		@Result(name = "errorAdd", location = "/jsp/ajoutCommande.jsp"),
+		@Result(name = "insertCom", location = "/WEB-INF/jsp/ajoutCommande.jsp"),
+		@Result(name = "errorAdd", location = "/WEB-INF/jsp/ajoutCommande.jsp"),
 		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
-		@Result(name = "updateCom", location = "/jsp/modifCommande.jsp"),
-		@Result(name = "affiche", location = "/jsp/ficheCommande.jsp"),
+		@Result(name = "updateCom", location = "/WEB-INF/jsp/modifCommande.jsp"),
+		@Result(name = "affiche", location = "/WEB-INF/jsp/ficheCommande.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
 

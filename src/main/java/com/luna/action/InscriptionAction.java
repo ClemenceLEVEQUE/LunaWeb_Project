@@ -12,9 +12,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 @Results(value = { @Result(name = "SUCCESS", type = "redirectAction", location = "index"),
-		@Result(name = "ERROR", location = "/jsp/inscription.jsp"),
-		@Result(name = "update", location = "/jsp/modifUser.jsp"),
-		@Result(name = "SignUp", location = "/jsp/inscription.jsp"),
+		@Result(name = "ERROR", location = "/WEB-INF/jsp/inscription.jsp"),
+		@Result(name = "update", location = "/WEB-INF/jsp/modifUser.jsp"),
+		@Result(name = "SignUp", location = "/WEB-INF/jsp/inscription.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 
 public class InscriptionAction extends ActionSupport implements ModelDriven<User> {

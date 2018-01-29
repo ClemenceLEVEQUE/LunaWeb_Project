@@ -13,8 +13,8 @@ import com.luna.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results(value = { @Result(name = "SUCCESS", location = "/jsp/menu.jsp"),
-		@Result(name = "ERROR", location = "/jsp/login.jsp"),
+@Results(value = { @Result(name = "SUCCESS", location = "/WEB-INF/jsp/menu.jsp"),
+		@Result(name = "ERROR", location = "/WEB-INF/jsp/login.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class LoginAction extends ActionSupport implements ModelDriven<User> {
 
