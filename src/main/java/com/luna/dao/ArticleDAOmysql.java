@@ -51,4 +51,8 @@ public class ArticleDAOmysql implements ArticleDAO {
 	public ArrayList<Article> getAllArticle() {
 		return (ArrayList<Article>) sessionFactory.getCurrentSession().createQuery("from Article").getResultList();
 	}
+
+	public ArrayList<Article> getSearch(String search) {
+		return (ArrayList<Article>) sessionFactory.getCurrentSession().createQuery("from Article where codeArt like '%" + search + "%'").getResultList();
+	}
 }

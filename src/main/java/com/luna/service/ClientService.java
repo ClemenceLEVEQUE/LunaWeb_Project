@@ -10,4 +10,5 @@ public interface ClientService {
 	String delete(int idClient);
 	Client get(int idClient);
 	List<Client> listClient();
+	List<Client> search(String search);
 }

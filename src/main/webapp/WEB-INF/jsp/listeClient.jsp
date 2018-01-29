@@ -30,13 +30,12 @@
 }
 
 #main {
-
 	max-with: 960px;
 	margin: auto;
 }
 
 #menu {
-position: fixed;
+	position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
@@ -113,7 +112,7 @@ h2 {
 								width="80px" height="80px" />
 							</a>
 						</h1>
-							<p></p>
+						<p></p>
 						<p></p>
 						<p></p>
 
@@ -129,9 +128,15 @@ h2 {
 						<p></p>
 						<p></p>
 						<h2>
-							<input class="search" type="text" name="search"
-								placeholder="Search..">
+							<input class="search" type="text" name="search" id="search"
+								placeholder="Search.."><br/><a title="Rechercher..." id="action" href="search?Search" onclick="research()"><img src="${pageContext.request.contextPath}/images/loupe.png"/></a>
 						</h2>
+						<script type="text/javascript">
+							function research() {
+								document.getElementById("action").href = "searchClient?Search="
+										+ document.getElementById("search").value;
+							}
+						</script>
 						<p></p>
 						<p></p>
 

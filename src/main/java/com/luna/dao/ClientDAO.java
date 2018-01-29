@@ -9,4 +9,5 @@ public interface ClientDAO {
 	public boolean removeClient(int idClient);
 	public Client getClient(int idClient);
 	public ArrayList<Client> getAllClient();
+	public ArrayList<Client> getSearch(String search);
 }

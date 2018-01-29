@@ -25,6 +25,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "updateCom", location = "/WEB-INF/jsp/modifCommande.jsp"),
 		@Result(name = "affiche", location = "/WEB-INF/jsp/ficheCommande.jsp"),
+		@Result(name = "research", location = "/WEB-INF/jsp/listeCommande.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class CommandeAction extends ActionSupport implements ModelDriven<Commande> {
 
@@ -128,12 +129,28 @@ public class CommandeAction extends ActionSupport implements ModelDriven<Command
 		}
 	}
 	
+	@Action("searchCom")
+	public String search() throws Exception {
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			String search = ServletActionContext.getRequest().getParameter("Search");
+			setModels(commandeService.search(search));
+			return "research";
+		}
+	}
+	
 	public List<Commande> getModels() {
 		return models;
 	}
 
 	public void setModels() {
 		this.models = commandeService.listCommande();
+	}
+
+	public void setModels(List<Commande> commandes) {
+		this.models = commandes;
 	}
 
 	public List<Client> getClients() {

@@ -43,4 +43,9 @@ public class CommandeServiceImpl implements CommandeService {
 	public List<Commande> listCommande() {
 		return commandeDao.getAllCommande();
 	}
+
+	@Override
+	public List<Commande> search(String search) {
+		return commandeDao.getSearch(search);
+	}
 }

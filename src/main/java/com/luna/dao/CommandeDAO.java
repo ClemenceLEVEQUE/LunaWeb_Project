@@ -11,4 +11,5 @@ public interface CommandeDAO {
 	public Commande getCommande(int idCommande);
 	public String getNewNum();
 	public ArrayList<Commande> getAllCommande();
+	public ArrayList<Commande> getSearch(String search);
 }

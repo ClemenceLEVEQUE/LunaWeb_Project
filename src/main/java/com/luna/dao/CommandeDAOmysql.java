@@ -54,6 +54,11 @@ public class CommandeDAOmysql implements CommandeDAO {
 	}
 
 	@Override
+	public ArrayList<Commande> getSearch(String search) {
+		return (ArrayList<Commande>) sessionFactory.getCurrentSession().createQuery("from Commande where numCom like '%" + search + "%'").getResultList();
+	}
+
+	@Override
 	public String getNewNum() {
 		List<String> str = sessionFactory.getCurrentSession().createQuery("select max(numCom) from Commande").getResultList();
 		String num;

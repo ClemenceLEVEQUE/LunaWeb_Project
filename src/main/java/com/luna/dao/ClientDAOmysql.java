@@ -52,4 +52,9 @@ public class ClientDAOmysql implements ClientDAO {
 	public ArrayList<Client> getAllClient() {
 		return (ArrayList<Client>) sessionFactory.getCurrentSession().createQuery("from Client").getResultList();
 	}
+
+	@Override
+	public ArrayList<Client> getSearch(String search) {
+		return (ArrayList<Client>) sessionFactory.getCurrentSession().createQuery("from Client where codeClient like '%" + search + "%'").getResultList();
+	}
 }

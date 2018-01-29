@@ -45,4 +45,9 @@ public class ClientServiceImpl implements ClientService {
 	public List<Client> listClient() {
 		return clientDao.getAllClient();
 	}
+
+	@Override
+	public List<Client> search(String search) {
+		return clientDao.getSearch(search);
+	}
 }

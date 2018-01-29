@@ -21,6 +21,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageClient"),
 		@Result(name = "updateClient", location = "/WEB-INF/jsp/modifClient.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageClient"),
+		@Result(name = "research", location = "/WEB-INF/jsp/listeClient.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 
 public class ClientAction extends ActionSupport implements ModelDriven<Client> {
@@ -96,6 +97,18 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 			client = clientService.get(id);
 			return "updateClient";
+		}
+	}
+	
+	@Action("searchClient")
+	public String search() throws Exception {
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			String search = ServletActionContext.getRequest().getParameter("Search");
+			setModels(clientService.search(search));
+			return "research";
 		}
 	}
 

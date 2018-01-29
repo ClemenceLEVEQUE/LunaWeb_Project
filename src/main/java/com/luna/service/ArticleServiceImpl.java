@@ -17,9 +17,10 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public String add(Article Art) {
-		if(articleDao.insertArticle(Art)) {
+		if (articleDao.insertArticle(Art)) {
 			return "insert";
-		} else return "errorAdd";
+		} else
+			return "errorAdd";
 	}
 
 	@Override
@@ -28,11 +29,13 @@ public class ArticleServiceImpl implements ArticleService {
 		return "update";
 
 	}
+
 	@Override
 	public String delete(int idArticle) {
-		if(	articleDao.removeArticle(idArticle)) {
+		if (articleDao.removeArticle(idArticle)) {
 			return "delete";
-		} else return "errorDelete";
+		} else
+			return "errorDelete";
 	}
 
 	@Override
@@ -44,4 +47,9 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<Article> listArticle() {
 		return articleDao.getAllArticle();
 	}
+
+	@Override
+	public List<Article> search(String search) {
+		return articleDao.getSearch(search);
 	}
+}

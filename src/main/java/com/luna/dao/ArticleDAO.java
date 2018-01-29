@@ -10,4 +10,5 @@ public interface ArticleDAO {
 	public boolean removeArticle(int idArticle);
 	public Article getArticle(int idArticle);
 	public ArrayList<Article> getAllArticle();
+	public ArrayList<Article> getSearch(String search);
 }

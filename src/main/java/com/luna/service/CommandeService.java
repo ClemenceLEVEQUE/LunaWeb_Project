@@ -10,4 +10,5 @@ public interface CommandeService {
 	String delete(int idCommande);
 	Commande get(int idCommande);
 	List<Commande> listCommande();
+	List<Commande> search(String search);
 }

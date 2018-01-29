@@ -23,6 +23,7 @@ import com.opensymphony.xwork2.ModelDriven;
 		@Result(name = "errorDelete", type = "redirectAction", location = "AffichageArticle"),
 		@Result(name = "updateArticle", location = "/WEB-INF/jsp/modifArticle.jsp"),
 		@Result(name = "update", type = "redirectAction", location = "AffichageArticle"),
+		@Result(name = "research", location = "/WEB-INF/jsp/listeArticle.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
 public class ArticleAction extends ActionSupport implements ModelDriven<Article> {
 	private static final long serialVersionUID = 1L;
@@ -97,6 +98,18 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 		}
 	}
 
+	@Action("searchArt")
+	public String search() throws Exception {
+		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		if(user == null) {
+			return "notlogged";
+		} else {
+			String search = ServletActionContext.getRequest().getParameter("Search");
+			setModels(articleService.search(search));
+			return "research";
+		}
+	}
+	
 	public Article getArticle() {
 		return article;
 	}
@@ -119,6 +132,10 @@ public class ArticleAction extends ActionSupport implements ModelDriven<Article>
 
 	public void setModels() {
 		this.models = articleService.listArticle();
+	}
+
+	public void setModels(List<Article> articles) {
+		this.models = articles;
 	}
 
 	@Override
