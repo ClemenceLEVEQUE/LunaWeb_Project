@@ -2,6 +2,7 @@ package com.luna.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -49,9 +50,10 @@ public class UserTest {
 
 	@Test
 	@Transactional
-	@Ignore
 	public void doesItRemove() {
-		// TODO
+		userService.delete(20);
+		User user = sessionFactory.getCurrentSession().get(User.class, 20);
+		assertNull(user);
 	}
 
 	@Test

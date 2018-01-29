@@ -2,6 +2,7 @@ package com.luna.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -16,7 +17,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.luna.conteneur.ConteneurSpring;
-
 import com.luna.entities.Client;
 
 
@@ -51,9 +51,10 @@ public class ClientTest {
 
 	@Test
 	@Transactional
-	@Ignore
-	public void doesItRemove() {
-		// TODO
+	public void doesItRemove() throws Exception{
+		clientService.delete(17);
+		Client client = sessionFactory.getCurrentSession().get(Client.class, 17);
+		assertNull(client);
 	}
 
 	@Test
@@ -67,6 +68,13 @@ public class ClientTest {
 	@Transactional
 	public void doesItGetAll() {
 		List<Client> clients = clientService.listClient();
+		assertNotNull(clients);
+	}
+
+	@Test
+	@Transactional
+	public void doesItSearch() {
+		List<Client> clients = clientService.search("");
 		assertNotNull(clients);
 	}
 }

@@ -2,6 +2,7 @@ package com.luna.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -52,9 +53,10 @@ public class LigneCommandeTest {
 
 	@Test
 	@Transactional
-	@Ignore
 	public void doesItRemove() {
-		// TODO
+		ligneCommandeService.delete(19);
+		LigneCommande ligne = sessionFactory.getCurrentSession().get(LigneCommande.class, 19);
+		assertNull(ligne);
 	}
 
 	@Test

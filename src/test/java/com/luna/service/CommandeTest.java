@@ -2,6 +2,7 @@ package com.luna.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -51,9 +52,10 @@ public class CommandeTest {
 
 	@Test
 	@Transactional
-	@Ignore
-	public void doesItRemove() {
-		// TODO
+	public void doesItRemove() throws Exception {
+		commandeService.delete(18);
+		Commande cmde = sessionFactory.getCurrentSession().get(Commande.class, 18);
+		assertNull(cmde);
 	}
 
 	@Test
@@ -67,6 +69,13 @@ public class CommandeTest {
 	@Transactional
 	public void doesItGetAll() {
 		List<Commande> commandes = commandeService.listCommande();
+		assertNotNull(commandes);
+	}
+
+	@Test
+	@Transactional
+	public void doesItSearch() {
+		List<Commande> commandes = commandeService.search("");
 		assertNotNull(commandes);
 	}
 }

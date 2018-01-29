@@ -2,7 +2,7 @@ package com.luna.service;
 
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -28,7 +28,7 @@ public class ArticleTest {
 	private ArticleService articleService;
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Test
 	@Transactional
 	public void doesItInsert() {
@@ -51,9 +51,10 @@ public class ArticleTest {
 
 	@Test
 	@Transactional
-	@Ignore
-	public void doesItRemove() {
-		// TODO
+	public void doesItRemove() throws Exception{
+		articleService.delete(16);
+		Article article = sessionFactory.getCurrentSession().get(Article.class, 16);
+		assertNull(article);
 	}
 
 	@Test
@@ -67,6 +68,13 @@ public class ArticleTest {
 	@Transactional
 	public void doesItGetAll() {
 		List<Article> articles = articleService.listArticle();
+		assertNotNull(articles);
+	}
+
+	@Test
+	@Transactional
+	public void doesItSearch() {
+		List<Article> articles = articleService.search("");
 		assertNotNull(articles);
 	}
 }
