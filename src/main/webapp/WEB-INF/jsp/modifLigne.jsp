@@ -105,11 +105,11 @@ h2 {
 						<p></p>
 						<h2>
 							<input class="search" type="text" name="search" id="search"
-								placeholder="Search.."><br/><a title="Rechercher..." id="action" href="search?Search" onclick="research()"><img src="${pageContext.request.contextPath}/images/loupe.png"/></a>
+								placeholder="Search.."><br/><a title="Rechercher..." id="action2" href="search?Search" onclick="research()"><img src="${pageContext.request.contextPath}/images/loupe.png"/></a>
 						</h2>
 						<script type="text/javascript">
 							function research() {
-								document.getElementById("action").href = "searchCom?Search="
+								document.getElementById("action2").href = "searchCom?Search="
 										+ document.getElementById("search").value;
 							}
 						</script>

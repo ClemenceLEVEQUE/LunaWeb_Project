@@ -105,11 +105,11 @@ h2 {
 						<p></p>
 						<h2>
 							<input class="search" type="text" name="search" id="search"
-								placeholder="Search.."><br/><a title="Rechercher..." id="action" href="search?Search" onclick="research()"><img src="${pageContext.request.contextPath}/images/loupe.png"/></a>
+								placeholder="Search.."><br/><a title="Rechercher..." id="action2" href="search?Search" onclick="research()"><img src="${pageContext.request.contextPath}/images/loupe.png"/></a>
 						</h2>
 						<script type="text/javascript">
 							function research() {
-								document.getElementById("action").href = "searchCom?Search="
+								document.getElementById("action2").href = "searchCom?Search="
 										+ document.getElementById("search").value;
 							}
 						</script>
@@ -148,7 +148,7 @@ h2 {
 								</option>
 							</s:iterator>
 						</select> <input type="text" id="client" style="display: none;"
-							value='<s:if test="getClients().size == 1"><s:iterator value="getClients()" begin="0" end="0"><s:property value="idClient"/></s:iterator></s:if>'>
+							value='<s:if test="getClients().size != 0"><s:iterator value="getClients()" begin="0" end="0"><s:property value="idClient"/></s:iterator></s:if>'>
 						<input type="text" id="id" style="display: none;"
 							value='<s:property value="commande.idCommande"/>'> <a
 							id="action" onclick="modifLien()" href="http://"><button>Enregistrer
