@@ -36,7 +36,7 @@ body {
 	width: auto;
 }
 
-.title h1 {
+.titled h1 {
 	font-size: 3.5em;
 	color: #bdbdbd;
 }
@@ -166,13 +166,13 @@ h1, h2 h3, h4, h5, h6, input {
 	font-weight: 100;
 }
 </style>
-<title>Sign in</title>
+<title>Luna project</title>
 </head>
 <body>
 
 	<div class="container main">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 text-center title">
+			<div class="col-md-6 col-md-offset-3 text-center titled">
 				<h1>Want to Sign in?</h1>
 				<div class="bar"></div>
 			</div>
@@ -181,7 +181,8 @@ h1, h2 h3, h4, h5, h6, input {
 			<div class="col-md-6 col-md-offset-3 form">
 				<h2>Login</h2>
 				<s:form action="inscription">
-					<s:textfield name="login" id="user.login" placeholder="Login" size="50" />
+					<s:textfield name="login" id="user.login" placeholder="Login"
+						size="50" />
 					<s:password name="mdp" id="user.mdp" placeholder="Password" />
 					<s:submit name="Valider" value="Sign in"
 						class="btn btn-default login" />

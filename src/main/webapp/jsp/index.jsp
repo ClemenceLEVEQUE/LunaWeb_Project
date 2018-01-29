@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Refresh" content="0; url=index">
-<title>En chargement</title>
+<title>Luna project</title>
 </head>
 <body>
 

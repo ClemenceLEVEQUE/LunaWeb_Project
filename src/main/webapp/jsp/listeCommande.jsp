@@ -6,15 +6,13 @@
 <head>
 <style type="text/css">
 .odd {
-	background-color: silver;
+	background-color: #F0C869;
 }
 
 .even {
-	background-color: white;
+	background-color: #FEE4A6;
 }
-</style>
-<head>
-<style type="text/css">
+
 .errors {
 	background-color: #FFCCCC;
 	border: 1px solid #CC0000;
@@ -40,7 +38,7 @@
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #F0AC2C;
+	background-color: #D17E01;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -48,7 +46,7 @@
 
 #listeCommande {
 	margin-left: 22%;
-	background-color: #F0AC2C;
+	background-color: #D17E01;
 }
 
 .search {
@@ -68,6 +66,7 @@ h2 {
 	margin: 20px 0 40% 10px;
 }
 </style>
+<title>Gestion des commandes</title>
 </head>
 <body>
 	<table width="100%">
@@ -160,30 +159,32 @@ h2 {
 									<td>Client</td>
 									<td>Date de livraison</td>
 									<td>Date de commande</td>
-									<td>Etat</td>
 									<td>Numero de Commande</td>
-									<td>Total</td>
 								</tr>
 
 								<s:iterator value="getModels()" status="modelsStatus">
 									<tr
 										class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-										<td width="20%"><s:property value="client" /></td>
-										<td width="20%"><s:property value="dateLivraison" /></td>
-										<td width="20%"><s:property value="dateCom" /></td>
-										<td width="10%"><s:property value="etat" /></td>
-										<td width="20%"><s:property value="numCom" /></td>
-										<td width="20%"><s:property value="total" /></td>
+										<td width="25%"><s:property value="client.codeClient" /></td>
+										<td width="25%"><s:property value="dateLivraison" /></td>
+										<td width="25%"><s:property value="dateCom" /></td>
+										<td width="25%"><s:property value="numCom" /></td>
 										<td><a
 											href='deleteCom?id=<s:property value="idCommande"/>'
-											title="suppression d'une commande"> <img
-												src="${pageContext.request.contextPath}/images/suppr.jpg" />
+											title="Supprimer"> <img
+												src="${pageContext.request.contextPath}/images/suppr.png" />
 										</a></td>
 
 										<td><a
 											href='updateThisCom?id=<s:property value="idCommande"/>'
-											title="modification d'une commande"> <img
-												src="${pageContext.request.contextPath}/images/modif.jpg" />
+											title="Modifier"> <img
+												src="${pageContext.request.contextPath}/images/modif.png" />
+										</a></td>
+
+										<td><a
+											href='ficheCommande?id=<s:property value="idCommande"/>'
+											title="Fiche"> <img
+												src="${pageContext.request.contextPath}/images/loupe.png" />
 										</a></td>
 									</tr>
 								</s:iterator>

@@ -25,7 +25,7 @@ public class LigneCommandeDAOmysql implements LigneCommandeDAO {
 
 	@Override
 	public void removeLigneCommande(int idLigneCommande) {
-		sessionFactory.getCurrentSession().createQuery("delete from LigneCommande where idLigneCommande = " + idLigneCommande).executeUpdate();
+		sessionFactory.getCurrentSession().createQuery("delete from LigneCommande where idLigne = " + idLigneCommande).executeUpdate();
 	}
 
 	@Override

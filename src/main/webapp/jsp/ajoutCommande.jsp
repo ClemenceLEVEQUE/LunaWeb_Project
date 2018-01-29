@@ -16,7 +16,7 @@ position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #F0AC2C;
+	background-color: #D17E01;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -24,7 +24,6 @@ position: fixed;
 
 #ajoutCommande {
 	margin-left: 22%;
-	background-color: #F0AC2C;
 }
 
 .search {
@@ -45,7 +44,7 @@ h2 {
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajouter une commande</title>
+<title>Ajout commande</title>
 </head>
 <body>
 	
@@ -132,6 +131,7 @@ h2 {
 						<p></p>
 					</div>
 					<div id="ajoutCommande">
+					<div class="title" style="width: 250px;">Ajouter une commande</div><br/>
 	<label>Client</label>
 	<select id="selectClient" onchange="changeClient()">
 		<s:iterator value="getClients()">
@@ -140,7 +140,7 @@ h2 {
 			</option>
 		</s:iterator>
 	</select>
-	<input type="text" id="client"
+	<input type="text" id="client" style="display:none;"
 		value='<s:if test="getClients().size == 1"><s:iterator value="getClients()"><s:property value="idClient"/></s:iterator></s:if>'>
 	<a id="action" onclick="modifLien()" href="http://"><button>Cr&eacute;er
 			la commande</button></a>

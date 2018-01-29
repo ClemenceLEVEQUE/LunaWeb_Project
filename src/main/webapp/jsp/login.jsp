@@ -36,7 +36,7 @@ body {
 	width: auto;
 }
 
-.title h1 {
+.titled h1 {
 	font-size: 3.5em;
 	color: #bdbdbd;
 }
@@ -166,12 +166,13 @@ h1, h2 h3, h4, h5, h6, input {
 	font-weight: 100;
 }
 </style>
+<title>Luna project</title>
 </head>
 <body>
 
 	<div class="container main">
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3 text-center title">
+			<div class="col-md-6 col-md-offset-3 text-center titled">
 				<h1>Want to Connect?</h1>
 				<div class="bar"></div>
 			</div>

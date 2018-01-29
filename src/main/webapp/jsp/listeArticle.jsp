@@ -6,15 +6,13 @@
 <head>
 <style type="text/css">
 .odd {
-	background-color: silver;
+	background-color: #40A497;
 }
 
 .even {
-	background-color: white;
+	background-color: #2F796F;
 }
-</style>
-<head>
-<style type="text/css">
+
 .errors {
 	background-color: #FFCCCC;
 	border: 1px solid #CC0000;
@@ -33,11 +31,11 @@
 }
 
 #menu {
-position: fixed;
+	position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #0FC917;
+	background-color: #5e8b2b;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -45,7 +43,7 @@ position: fixed;
 
 #listeArticle {
 	margin-left: 22%;
-	background-color: #09DC12;
+	background-color: #5e8b2b;
 }
 
 .search {
@@ -65,7 +63,7 @@ h2 {
 	margin: 20px 0 40% 10px;
 }
 </style>
-<title></title>
+<title>Gestion des articles</title>
 </head>
 <body>
 <table width="100%">
@@ -155,29 +153,30 @@ h2 {
 		<s:if test="getModels()!=null">
 			<table>
 				<tr class="entete">
-					<td>nomArticle</td>
-					<td>Quantité</td>
-					<td>PrixUnitaire</td>
-					<td>Catégorie</td>
-					<td>CodeArt</td>
-					<td>S</td>
+					<td>Code article</td>
+					<td>D&eacute;signation</td>
+					<td>Cat&eacute;gorie</td>
+					<td>Prix unit.</td>
+					<td>Stock</td>
+					<td></td>
+					<td></td>
 				</tr>
 
 				<s:iterator value="getModels()" status="modelsStatus">
 					<tr
 						class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
-						<td width="20%"><s:property value="nomArticle" /></td>
-						<td width="20%"><s:property value="stock" /></td>
-						<td width="20%"><s:property value="prixUnitaire" /></td>
-						<td width="20%"><s:property value="categorie" /></td>
 						<td width="20%"><s:property value="codeArt" /></td>
+						<td width="20%"><s:property value="nomArticle" /></td>
+						<td width="20%"><s:property value="categorie" /></td>
+						<td width="20%"><s:property value="prixUnitaire" /></td>
+						<td width="20%"><s:property value="stock" /></td>
 						<td><a href='deleteArt?id=<s:property value="idArticle"/>'
-											title="suppression de l'article"> <img
-												src="${pageContext.request.contextPath}/images/suppr.jpg" />
+											title="Supprimer"> <img
+												src="${pageContext.request.contextPath}/images/suppr.png" />
 										</a></td>
 						<td><a href='updateThisArt?id=<s:property value="idArticle"/>'
-											title="modification de l'article"> <img
-												src="${pageContext.request.contextPath}/images/modif.jpg" />
+											title="Modifier"> <img
+												src="${pageContext.request.contextPath}/images/modif.png" />
 										</a></td>
 					</tr>
 				</s:iterator>

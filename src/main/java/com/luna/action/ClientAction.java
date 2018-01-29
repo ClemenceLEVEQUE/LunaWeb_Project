@@ -37,6 +37,7 @@ public class ClientAction extends ActionSupport implements ModelDriven<Client> {
 	@Override
 	public String execute() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
+		System.out.println(user);
 		if (user == null) {
 			return "notlogged";
 		} else {

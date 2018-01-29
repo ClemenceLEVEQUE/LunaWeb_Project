@@ -16,7 +16,7 @@ position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #0FC917;
+	background-color: #5e8b2b;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -24,7 +24,6 @@ position: fixed;
 
 #ajoutArticle {
 	margin-left: 22%;
-	background-color: #09DC12;
 }
 
 .search {
@@ -45,7 +44,7 @@ h2 {
 }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajouter un article</title>
+<title>Ajout article</title>
 </head>
 <body>
 	
@@ -68,7 +67,7 @@ h2 {
 
 						<p></p>
 						<p></p>
-						<p>Ajouter un article</p>
+						<p>Liste article</p>
 						<p></p>
 						<p></p>
 						<p></p>
@@ -135,12 +134,14 @@ h2 {
 	<s:form action="insertArt" theme="simple">
 		<div id="main">
 			<table>
-
+				<tr>
+					<td colspan="4"><div class="title">Ajouter un article</div><br/></td>
+				</tr>
 				<tr>
 					<td><s:label>Code article</s:label></td>
 					<td><s:textfield type="text" placeholder="Code article"
 							name="article.codeArt" /></td>
-					<td><s:label>Designation</s:label></td>
+					<td><s:label>D&eacute;signation</s:label></td>
 					<td><s:textfield type="text" placeholder="Designation"
 							name="article.nomArticle" /></td>
 				</tr>

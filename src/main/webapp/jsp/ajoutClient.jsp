@@ -5,18 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ajouter un client</title>
+<title>Ajout client</title>
 
 <style type="text/css">
-.title {
-	text-align: left;
-	border: none;
-	border-bottom: 2px dotted black;
-	width: 100%;
-	font-family: Courrier New;
-	font-size: 25;
-	text-shadow: 1px 1px 1px skyblue;
-}
 .search{
     width: 30%;
 }
@@ -36,7 +27,7 @@ position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #3066D1;
+	background-color: #3f87a1;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -44,7 +35,6 @@ position: fixed;
 
 #ajoutClient {
 	margin-left: 22%;
-	background-color: #0061E5;
 }
 
 .search {
@@ -87,7 +77,7 @@ h2 {
 
 						<p></p>
 						<p></p>
-						<p>Ajouter un client</p>
+						<p>Liste client</p>
 						<p></p>
 						<p></p>
 						<p></p>

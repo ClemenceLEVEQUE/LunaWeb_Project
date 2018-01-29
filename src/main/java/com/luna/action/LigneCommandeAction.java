@@ -17,9 +17,9 @@ import com.luna.service.LigneCommandeService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-@Results(value = { @Result(name = "insert", type = "redirectAction", location = "ficheCom"),
-		@Result(name = "update", type = "redirectAction", location = "ficheCom"),
-		@Result(name = "delete", type = "redirectAction", location = "ficheCom"),
+@Results(value = { @Result(name = "insert", type = "redirectAction", location = "AffichageCommande"),
+		@Result(name = "update", type = "redirectAction", location = "AffichageCommande"),
+		@Result(name = "delete", type = "redirectAction", location = "AffichageCommande"),
 		@Result(name = "insertLig", location = "/jsp/ajoutLigne.jsp"),
 		@Result(name = "updateLig", location = "/jsp/modifLigne.jsp"),
 		@Result(name = "notlogged", type = "redirectAction", location = "index") })
@@ -39,7 +39,7 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	@Action("insertLig")
 	public String insertLig() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
-		if(user == null) {
+		if (user == null) {
 			return "notlogged";
 		} else {
 			int com = Integer.parseInt(ServletActionContext.getRequest().getParameter("Com"));
@@ -52,10 +52,10 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 		}
 	}
 
-	@Action("insertThisLig")
+	@Action("insertThisLigne")
 	public String insert() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
-		if(user == null) {
+		if (user == null) {
 			return "notlogged";
 		} else {
 			setArticles();
@@ -67,7 +67,7 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	@Action("updateLig")
 	public String modifLig() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
-		if(user == null) {
+		if (user == null) {
 			return "notlogged";
 		} else {
 			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
@@ -82,10 +82,10 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 		}
 	}
 
-	@Action("updateThisLig")
+	@Action("updateThisLigne")
 	public String update() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
-		if(user == null) {
+		if (user == null) {
 			return "notlogged";
 		} else {
 			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
@@ -99,7 +99,7 @@ public class LigneCommandeAction extends ActionSupport implements ModelDriven<Li
 	@Action("deleteLig")
 	public String supprLig() throws Exception {
 		String user = (String) ServletActionContext.getRequest().getSession().getAttribute("username");
-		if(user == null) {
+		if (user == null) {
 			return "notlogged";
 		} else {
 			int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));

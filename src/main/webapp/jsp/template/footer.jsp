@@ -14,7 +14,6 @@ position: fixed;
     width: 100%;
     	margin: 20% 00% 0% 0;
     </style>
-<title>Footer</title>
 </head>
 <body>
 	<div class="fixed" >  <p class="footer"><br/>Karim El Koulali &amp; Cl&eacute;mence L&eacute;v&ecirc;que<br/>

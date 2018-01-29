@@ -7,15 +7,13 @@
 
 <style type="text/css">
 .odd {
-	background-color: silver;
+	background-color: #A6BBFE;
 }
 
 .even {
-	background-color: white;
+	background-color: #8CB4E2;
 }
-</style>
-<head>
-<style type="text/css">
+
 .errors {
 	background-color: #FFCCCC;
 	border: 1px solid #CC0000;
@@ -42,7 +40,7 @@ position: fixed;
 	float: left;
 	float: inline-end;
 	width: 20%;
-	background-color: #3066D1;
+	background-color: #3f87a1;
 	margin: 0 0 0 0;
 	display: block;
 	text-align: center;
@@ -50,7 +48,7 @@ position: fixed;
 
 #listeClient {
 	margin-left: 22%;
-	background-color: #0061E5;
+	background-color: #3f87a1;
 }
 
 .search {
@@ -70,6 +68,7 @@ h2 {
 	margin: 20px 0 40% 10px;
 }
 </style>
+<title>Gestion des clients</title>
 </head>
 <body>
 	<table width="100%">
@@ -159,33 +158,33 @@ h2 {
 						<s:if test="getModels()!=null">
 							<table>
 								<tr class="entete">
+									<td>Code client</td>
 									<td>Nom</td>
-									<td>Prénom</td>
+									<td>Pr&eacute;nom</td>
 									<td>Ville</td>
 									<td>Tel</td>
 									<td>Mail</td>
-									<td>Code client</td>
 								</tr>
 
 								<s:iterator value="getModels()" status="modelsStatus">
 									<tr
 										class="<s:if test="#modelsStatus.odd == true ">odd</s:if><s:else>even</s:else>">
+										<td width="20%"><s:property value="codeClient" /></td>
 										<td width="20%"><s:property value="nom" /></td>
 										<td width="20%"><s:property value="prenom" /></td>
 										<td width="20%"><s:property value="ville" /></td>
 										<td width="10%"><s:property value="tel" /></td>
 										<td width="20%"><s:property value="mail" /></td>
-										<td width="20%"><s:property value="codeClient" /></td>
 										<td><a
 											href='deleteClient?id=<s:property value="idClient"/>'
-											title="suppression du client"> <img
-												src="${pageContext.request.contextPath}/images/suppr.jpg" />
+											title="Supprimer"> <img
+												src="${pageContext.request.contextPath}/images/suppr.png" />
 										</a></td>
 
 										<td><a
 											href='updateThisClient?id=<s:property value="idClient"/>'
-											title="modification du client"> <img
-												src="${pageContext.request.contextPath}/images/modif.jpg" />
+											title="Modifier"> <img
+												src="${pageContext.request.contextPath}/images/modif.png" />
 										</a></td>
 									</tr>
 								</s:iterator>

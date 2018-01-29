@@ -14,3 +14,14 @@ a{
 	background-color: #242729;
 	color: #bfbfbf;
 }
+
+.title {
+	text-align: left;
+	border: none;
+	border-bottom: 2px dotted black;
+	width: 100%;
+	font-family: Courrier New;
+	font-size: 25;
+	text-shadow: 1px 1px 1px black;
+	color: skyblue;
+}
